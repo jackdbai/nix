@@ -1,4 +1,4 @@
-{ config, pkgs, lib, hostName, eza, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [

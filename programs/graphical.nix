@@ -1,10 +1,10 @@
-{ config, pkgs, lib, hostName, eza, ... }:
+{ config, pkgs, home, ... }:
 
 {
   home.packages = with pkgs; [
-    brave
+    discord
+    firefox-esr
     github-desktop
-    kitty
     localsend
     sublime3
   ];

@@ -18,10 +18,7 @@
       "alita" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          {
-            system.stateVersion = "22.11";
-          }
-          ./hosts/alita
+          ./hosts/nixos/alita
           ./configuration.nix
 
           home-manager.nixosModules.home-manager
@@ -35,7 +32,12 @@
               imports = [
                 ./home.nix
                 ./programs/cli.nix
+                # ./programs/darwin.nix
+                # ./programs/gaming.nix
                 ./programs/graphical.nix
+                ./programs/nonwork.nix
+                # ./programs/texlive.nix
+                # ./programs/work.nix
               ];
             };
           })
