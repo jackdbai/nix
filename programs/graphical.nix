@@ -6,6 +6,7 @@
     firefox-esr
     github-desktop
     localsend
+    pulsar
     sublime3
   ];
 }

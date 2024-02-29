@@ -24,13 +24,14 @@
   # Permit Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
+    "pulsar-1.109.0"
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
   };
 
