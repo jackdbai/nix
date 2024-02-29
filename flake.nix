@@ -46,7 +46,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/elle
-          ./roles/hypertop.nix
+          ./roles/dev.nix
 
           home-manager.nixosModules.home-manager
           ({ config, lib, ... }: {
