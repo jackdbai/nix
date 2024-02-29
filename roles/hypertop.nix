@@ -19,6 +19,9 @@
     vim
   ];
 
+  # Enable gnome-keyring
+  # services.gnome3.gnome-keyring.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -27,11 +30,16 @@
     enable = true;
     wayland = true;
   };
-  /* services.xserver.desktopManager.gnome.enable = true; */
+  services.xserver.desktopManager.gnome.enable = true;
   programs.sway.enable = true;
 
   # Enable zsh
   programs.zsh.enable = true;
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # Permit Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
