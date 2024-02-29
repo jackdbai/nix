@@ -19,26 +19,25 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/alita
-          ./configuration.nix
+          ./roles/workstation.nix
 
           home-manager.nixosModules.home-manager
           ({ config, lib, ... }: {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit (config.networking) hostName;
-            };
-            home-manager.users.jack = {...}: {
-              imports = [
-                ./home.nix
-                ./programs/cli.nix
-                # ./programs/darwin.nix
-                # ./programs/gaming.nix
-                ./programs/graphical.nix
-                ./programs/nonwork.nix
-                # ./programs/texlive.nix
-                # ./programs/work.nix
-              ];
+            home-manager = {
+              useGlobalPkgs = true;
+              Packages = true;
+              extraSpecialArgs = {
+                inherit (config.networking) hostName;
+              };
+              users.jack = {...}: {
+                imports = [
+                  ./home.nix
+                  ./programs/cli.nix
+                  ./programs/graphical.nix
+                  ./programs/nonwork.nix
+                  ./programs/texlive.nix
+                ];
+              };
             };
           })
         ];
@@ -47,26 +46,24 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/elle
-          ./configuration.nix
+          ./roles/hypertop.nix
 
           home-manager.nixosModules.home-manager
           ({ config, lib, ... }: {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {
-              inherit (config.networking) hostName;
-            };
-            home-manager.users.jack = {...}: {
-              imports = [
-                ./home.nix
-                ./programs/cli.nix
-                # ./programs/darwin.nix
-                # ./programs/gaming.nix
-                ./programs/graphical.nix
-                ./programs/nonwork.nix
-                # ./programs/texlive.nix
-                # ./programs/work.nix
-              ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {
+                inherit (config.networking) hostName;
+              };
+              users.jack = {...}: {
+                imports = [
+                  ./home.nix
+                  ./programs/cli.nix
+                  ./programs/graphical.nix
+                  ./programs/nonwork.nix
+                ];
+              };
             };
           })
         ];

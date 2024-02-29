@@ -2,11 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    brave
     discord
-    firefox-esr
     github-desktop
     localsend
     pulsar
-    sublime3
   ];
 }
