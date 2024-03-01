@@ -15,17 +15,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-bb3ae864-1945-40bf-99d9-8cb0246c552d".device = "/dev/disk/by-uuid/bb3ae864-1945-40bf-99d9-8cb0246c552d";
-  boot.initrd.luks.devices."luks-bb3ae864-1945-40bf-99d9-8cb0246c552d".keyFile = "/crypto_keyfile.bin";
-
+  boot.initrd.luks.devices."luks-60d9881d-244d-429a-965f-9ad25d5a27ef".device = "/dev/disk/by-uuid/60d9881d-244d-429a-965f-9ad25d5a27ef";
   networking.hostName = "elle"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -54,53 +45,18 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  #services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
-
   # Configure keymap in X11
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  security.polkit.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    #extraGroups = [ "networkmanager" "wheel" ];
-    #packages = with pkgs; [
-    #  firefox
-    #  thunderbird
-    #];
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -108,12 +64,12 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  #environment.systemPackages = with pkgs; [
-  #  curl
-  #  git
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  #];
+  environment.systemPackages = with pkgs; [
+    curl
+    git
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -140,6 +96,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
