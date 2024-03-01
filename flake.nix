@@ -59,6 +59,15 @@
           (./homes/dev.nix)
         ];
       };
+      "armvm" = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          ./hosts/armvm
+          ./roles/dev.nix
+          home-manager.nixosModules.home-manager
+          (./homes/dev.nix)
+        ];
+      };
     };
   };
 }
