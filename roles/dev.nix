@@ -1,23 +1,5 @@
 { config, pkgs, home-manager, ... }:
 
-home-manager.nixosModules.home-manager
-({ config, lib, ... }: {
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {
-      inherit (config.networking) hostName;
-    };
-    users.jack = {...}: {
-      imports = [
-        ./home/nixos.nix
-        ./programs/cli.nix
-        ./programs/graphical.nix
-      ];
-    };
-  };
-})
-
 {
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

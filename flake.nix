@@ -17,7 +17,7 @@
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-homebrew.url = {
+    nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
     };
     homebrew-bundle = {
@@ -47,23 +47,7 @@
           ./roles/nixos.nix
 
           home-manager.nixosModules.home-manager
-          ({ config, lib, ... }: {
-            home-manager = {
-              useGlobalPkgs = true;
-              Packages = true;
-              extraSpecialArgs = {
-                inherit (config.networking) hostName;
-              };
-              users.jack = {...}: {
-                imports = [
-                  ./home/nixos.nix
-                  ./programs/cli.nix
-                  ./programs/graphical.nix
-                  ./programs/texlive.nix
-                ];
-              };
-            };
-          })
+          (./homes/nixos.nix)
         ];
       };
       "elle" = nixpkgs.lib.nixosSystem {
@@ -71,24 +55,8 @@
         modules = [
           ./hosts/elle
           ./roles/dev.nix
-
-          /* home-manager.nixosModules.home-manager
-          ({ config, lib, ... }: {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {
-                inherit (config.networking) hostName;
-              };
-              users.jack = {...}: {
-                imports = [
-                  ./home/nixos.nix
-                  ./programs/cli.nix
-                  ./programs/graphical.nix
-                ];
-              };
-            };
-          }) */
+          home-manager.nixosModules.home-manager
+          (./homes/dev.nix)
         ];
       };
     };
