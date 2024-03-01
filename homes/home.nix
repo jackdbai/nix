@@ -29,6 +29,7 @@
       "rebuild" = "sudo rm -rf /etc/nixos/* && sudo cp -r /home/jack/git/nix/* /etc/nixos/. && sudo nixos-rebuild switch";
       "regit" = "cd ~/git/nix && git pull && sudo rm -rf /etc/nixos/* && sudo cp -r /home/jack/git/nix/* /etc/nixos/. && sudo nixos-rebuild switch";
       "upgrade" = "sudo nixos-rebuild switch --upgrade";
+      "yolo" = "echo 'it worked!'";
     };
   };
 
