@@ -44,7 +44,7 @@
         system = "x86_64-linux";
         modules = [
           ./hosts/alita
-          ./roles/nixos.nix
+          ./roles/stable.nix
 
           home-manager.nixosModules.home-manager
           (./homes/nixos.nix)
@@ -59,10 +59,10 @@
           (./homes/dev.nix)
         ];
       };
-      "armvm" = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
+      "nixvm" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         modules = [
-          ./hosts/armvm
+          ./hosts/nixvm
           ./roles/dev.nix
           home-manager.nixosModules.home-manager
           (./homes/dev.nix)

@@ -27,6 +27,7 @@
     "pulsar-1.109.0"
   ];
 
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jack = {
     isNormalUser = true;
@@ -37,6 +38,7 @@
 
   # Enable podman
   virtualisation = {
+    virtualbox.host.enable = true;
     podman = {
       enable = true;
 
