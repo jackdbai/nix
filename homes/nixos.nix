@@ -1,7 +1,7 @@
 { config, lib, ... }: {
   home-manager = {
     useGlobalPkgs = true;
-    Packages = true;
+    useUserPackages = true;
     extraSpecialArgs = {
       inherit (config.networking) hostName;
     };
