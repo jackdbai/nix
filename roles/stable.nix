@@ -23,6 +23,7 @@
 
   # Permit Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
+    "electron-19.1.9"
     "electron-25.9.0"
     "pulsar-1.109.0"
   ];
@@ -38,7 +39,10 @@
 
   # Enable podman
   virtualisation = {
-    virtualbox.host.enable = true;
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
     podman = {
       enable = true;
 

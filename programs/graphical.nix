@@ -6,6 +6,8 @@
     brave
     discord
     element-desktop
+    etcher
+    gimp
     github-desktop
     kitty
     localsend
