@@ -36,7 +36,7 @@
 
   outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, ... }: {
     darwinConfigurations = {
-
+      #eventually
     };
 
     nixosConfigurations = {
@@ -45,11 +45,11 @@
         modules = [
           ./hosts/alita
           ./roles/stable.nix
-
           home-manager.nixosModules.home-manager
-          (./homes/nixos.nix)
+          (./homes/stable.nix)
         ];
       };
+
       "elle" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -59,6 +59,7 @@
           (./homes/dev.nix)
         ];
       };
+
       "nixvm" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
