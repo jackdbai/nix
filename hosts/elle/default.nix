@@ -10,13 +10,10 @@
       ./hardware-configuration.nix
     ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-60d9881d-244d-429a-965f-9ad25d5a27ef".device = "/dev/disk/by-uuid/60d9881d-244d-429a-965f-9ad25d5a27ef";
   networking.hostName = "elle"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -47,8 +44,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
+    layout = "us";
+    xkbVariant = "";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

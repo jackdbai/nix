@@ -25,12 +25,30 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # Enable greetd login
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session.command = ''
+       ${pkgs.greetd.tuigreet}/bin/tuigreet \
+         --time \
+         --asterisks \
+         --user-menu \
+         --cmd sway
+      '';
+    };
+  };
+
+  environment.etc."greetd/environments".text = ''
+    sway
+  '';
+
   # Enable the GNOME/Sway Desktop Environment.
-  services.xserver.displayManager.gdm = {
+  /* services.xserver.displayManager.gdm = {
     enable = true;
     wayland = true;
-  };
-  services.xserver.desktopManager.gnome.enable = true;
+  }; */
+  /* services.xserver.desktopManager.gnome.enable = true; */
   programs.sway.enable = true;
 
   # Enable zsh
@@ -46,6 +64,8 @@
     "electron-25.9.0"
     "pulsar-1.109.0"
   ];
+
+  security.polkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jack = {
