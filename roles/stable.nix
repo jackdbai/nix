@@ -39,10 +39,10 @@
 
   # Enable podman
   virtualisation = {
-    virtualbox.host = {
+    /* virtualbox.host = {
       enable = true;
       enableExtensionPack = true;
-    };
+    }; */
     podman = {
       enable = true;
 
