@@ -10,6 +10,15 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable stevenblack host file
+  networking.stevenBlackHosts = {
+    enable = true;
+    blockFakenews = true;
+    blockGambling = true;
+    blockPorn = true;
+    blockSocial = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -26,7 +35,7 @@
   services.xserver.enable = true;
 
   # Enable greetd login
-  services.greetd = {
+  /* services.greetd = {
     enable = true;
     settings = {
       default_session.command = ''
@@ -41,14 +50,14 @@
 
   environment.etc."greetd/environments".text = ''
     sway
-  '';
+  ''; */
 
   # Enable the GNOME/Sway Desktop Environment.
-  /* services.xserver.displayManager.gdm = {
+  services.xserver.displayManager.gdm = {
     enable = true;
     wayland = true;
-  }; */
-  /* services.xserver.desktopManager.gnome.enable = true; */
+  };
+  services.xserver.desktopManager.gnome.enable = true;
   programs.sway.enable = true;
 
   # Enable zsh
