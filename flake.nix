@@ -50,6 +50,9 @@
           ./roles/stable.nix
           home-manager.nixosModules.home-manager
           (./homes/stable.nix)
+          # Enable stevenblack host file
+          hosts.nixosModule
+          (./modules/sbhosts.nix)
         ];
       };
 
