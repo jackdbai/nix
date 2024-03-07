@@ -6,6 +6,9 @@
   };
 
   inputs = {
+    hosts = {
+      url = github:StevenBlack/hosts;
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-23.11";
     };
@@ -34,7 +37,7 @@
     };
   };
 
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, ... }: {
+  outputs = { self, darwin, hosts, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, ... }: {
     darwinConfigurations = {
       #eventually
     };
@@ -57,6 +60,9 @@
           ./roles/dev.nix
           home-manager.nixosModules.home-manager
           (./homes/dev.nix)
+          # Enable stevenblack host file
+          hosts.nixosModule
+          (./modules/sbhosts.nix)
         ];
       };
 
