@@ -43,7 +43,7 @@
     hyprland
   '';
 
-  display.hyprland = {
+  programs.hyprland = {
     enable = true;
   };
 
