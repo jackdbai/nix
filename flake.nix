@@ -46,6 +46,7 @@
      "alita" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./modules
           ./hosts/alita
           ./roles/stable.nix
           home-manager.nixosModules.home-manager
@@ -59,6 +60,7 @@
       "elle" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          ./modules
           ./hosts/elle
           ./roles/dev.nix
           home-manager.nixosModules.home-manager
