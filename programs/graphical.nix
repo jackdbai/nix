@@ -9,7 +9,7 @@
     etcher
     gimp
     github-desktop
-    kitty
+    /* kitty */
     localsend
     obsidian
     pulsar
