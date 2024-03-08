@@ -1,5 +1,13 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
   home-manager = {
+    wayland.windowManager.hyprland = {
+      enable = true;
+      package = pkgs.hyprland;
+      xwayland.enable = true;
+      systemd.enable = true;
+    };
+
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
