@@ -43,6 +43,10 @@
     hyprland
   '';
 
+  display.hyprland = {
+    enable = true;
+  };
+
   # Enable the GNOME/Sway Desktop Environment.
   /* services.xserver.displayManager.gdm = {
     enable = true;
