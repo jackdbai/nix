@@ -19,6 +19,14 @@
     vim
   ];
 
+  # Enable the GNOME/Sway Desktop Environment.
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # Enable zsh
   programs.zsh.enable = true;
 
   # Permit Insecure Packages
