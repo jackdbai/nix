@@ -20,7 +20,7 @@
   ];
 
   # Enable gnome-keyring
-  # services.gnome3.gnome-keyring.enable = true;
+  services.gnome3.gnome-keyring.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
