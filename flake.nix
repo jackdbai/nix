@@ -19,9 +19,6 @@
   };
 
   outputs = { self, hosts, home-manager, nixpkgs, ... }: {
-    darwinConfigurations = {
-      #eventually
-    };
 
     nixosConfigurations = {
       "elle" = nixpkgs.lib.nixosSystem {
@@ -29,14 +26,15 @@
         modules = [
           /* ./modules */
           ./hosts/elle
-          ./roles/stable.nix
+          ./roles/dev.nix
           home-manager.nixosModules.home-manager
-          (./homes/stable.nix)
+          (./homes/dev.nix)
           # Enable stevenblack host file
           hosts.nixosModule
           (./modules/sbhosts.nix)
         ];
       };
     };
+
   };
 }

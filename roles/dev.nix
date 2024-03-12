@@ -26,7 +26,7 @@
   services.xserver.enable = true;
 
   # Enable greetd login
-  services.greetd = {
+  /* services.greetd = {
     enable = true;
     settings = {
       default_session.command = ''
@@ -34,26 +34,29 @@
          --time \
          --asterisks \
          --user-menu \
-         --cmd hyprland
+         --cmd sway
       '';
     };
   };
 
   environment.etc."greetd/environments".text = ''
-    hyprland
-  '';
+    sway
+  ''; */
 
+  # Enable the GNOME/Sway Desktop Environment.
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # Enable Hyprland
   programs.hyprland = {
     enable = true;
   };
 
-  # Enable the GNOME/Sway Desktop Environment.
-  /* services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-  services.xserver.desktopManager.gnome.enable = true; */
-  /* programs.sway.enable = true; */
+  # Enable Sway
+  programs.sway.enable = true;
 
   # Enable zsh
   programs.zsh.enable = true;

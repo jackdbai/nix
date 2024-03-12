@@ -4,15 +4,6 @@
   home.username = "jack";
   home.homeDirectory = "/home/jack";
 
-  # Settings for Sway
-  wayland.windowManager.sway = {
-    enable = true;
-    config = rec {
-      modifier = "Mod4";
-      terminal = "kitty";
-    };
-  };
-
   # Enable significant programs
   programs.gh.enable = true;
   programs.home-manager.enable = true;
