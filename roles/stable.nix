@@ -19,6 +19,9 @@
     vim
   ];
 
+  # Enable graphical environment (NOT STRICTLY X)
+  services.xserver.enable = true;
+
   # Enable the GNOME/Sway Desktop Environment.
   services.xserver.displayManager.gdm = {
     enable = true;
