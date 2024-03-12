@@ -20,7 +20,7 @@
   ];
 
   # Enable gnome-keyring
-  services.gnome3.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -48,12 +48,12 @@
     enable = true;
     wayland = true;
   };
-  services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Hyprland
-  programs.hyprland = {
-    enable = true;
-  };
+  #programs.hyprland = {
+  #  enable = true;
+  #};
 
   # Enable Sway
   programs.sway.enable = true;
