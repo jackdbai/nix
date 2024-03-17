@@ -26,6 +26,19 @@
         modules = [
           /* ./modules */
           ./hosts/elle
+          ./roles/dev.nix
+          home-manager.nixosModules.home-manager
+          (./homes/dev.nix)
+          # Enable stevenblack host file
+          hosts.nixosModule
+          (./modules/sbhosts.nix)
+        ];
+      };
+      "flannery" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          /* ./modules */
+          ./hosts/elle
           ./roles/stable.nix
           home-manager.nixosModules.home-manager
           (./homes/stable.nix)
