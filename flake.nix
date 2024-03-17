@@ -7,14 +7,14 @@
 
   inputs = {
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts = {
       url = github:StevenBlack/hosts;
     };
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-23.11";
+      url = "github:NixOS/nixpkgs/master";
     };
   };
 
@@ -26,9 +26,9 @@
         modules = [
           /* ./modules */
           ./hosts/elle
-          ./roles/stable.nix
+          ./roles/dev.nix
           home-manager.nixosModules.home-manager
-          (./homes/stable.nix)
+          (./homes/dev.nix)
           # Enable stevenblack host file
           hosts.nixosModule
           (./modules/sbhosts.nix)
@@ -39,9 +39,9 @@
         modules = [
           /* ./modules */
           ./hosts/flannery
-          ./roles/dev.nix
+          ./roles/stable.nix
           home-manager.nixosModules.home-manager
-          (./homes/dev.nix)
+          (./homes/stable.nix)
           # Enable stevenblack host file
           hosts.nixosModule
           (./modules/sbhosts.nix)

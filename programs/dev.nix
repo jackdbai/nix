@@ -8,6 +8,7 @@
     localsend
     obsidian
     pulsar
-    xfce.thunar
+    sublime4
+    vscodium
   ];
 }

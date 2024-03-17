@@ -14,7 +14,7 @@
         ../programs/cli.nix
         ../programs/dev.nix
         #../programs/graphical.nix
-        ../programs/texlive.nix
+        #../programs/texlive.nix
       ];
     };
   };

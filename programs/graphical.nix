@@ -2,17 +2,17 @@
 
 {
   home.packages = with pkgs; [
-    #_1password-gui
     brave
     discord
     element-desktop
-    etcher
+    # etcher
     gimp
     github-desktop
-    /* kitty */
+    kitty
     localsend
     obsidian
-    pulsar
+    # pulsar
     signal-desktop
+    vscodium
   ];
 }

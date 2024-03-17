@@ -19,6 +19,14 @@
     vim
   ];
 
+  # Enable printing
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
+
   # Enable graphical environment (NOT STRICTLY X)
   services.xserver.enable = true;
 
@@ -34,9 +42,7 @@
 
   # Permit Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-19.1.9"
-    "electron-25.9.0"
-    "pulsar-1.109.0"
+    #hMM
   ];
 
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];

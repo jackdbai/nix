@@ -48,7 +48,7 @@
     enable = true;
     wayland = true;
   };
-  #services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Hyprland
   #programs.hyprland = {
@@ -61,16 +61,17 @@
   # Enable zsh
   programs.zsh.enable = true;
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
+  #programs.gnupg.agent = {
+  #  enable = true;
+  #  enableSSHSupport = true;
+  #};
 
   # Permit Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
     "electron-19.1.9"
     "electron-25.9.0"
-    "pulsar-1.109.0"
+    "pulsar-1.114.0"
+    "openssl-1.1.1w"
   ];
 
   security.polkit.enable = true;
