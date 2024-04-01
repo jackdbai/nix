@@ -37,6 +37,9 @@
   };
   services.xserver.desktopManager.gnome.enable = true;
 
+  programs.sway.enable = true;
+  programs.hyprland.enable = true;
+
   # Enable zsh
   programs.zsh.enable = true;
 

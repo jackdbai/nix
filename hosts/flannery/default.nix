@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-45f118b1-c3f1-43c2-809f-ae11abc494f8".device = "/dev/disk/by-uuid/45f118b1-c3f1-43c2-809f-ae11abc494f8";
+  boot.initrd.luks.devices."luks-1afe946f-5d9d-455e-8c76-5080e912b716".device = "/dev/disk/by-uuid/1afe946f-5d9d-455e-8c76-5080e912b716";
   networking.hostName = "flannery"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

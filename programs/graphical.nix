@@ -13,6 +13,7 @@
     obsidian
     # pulsar
     signal-desktop
+    xfce.thunar
     vscodium
   ];
 }

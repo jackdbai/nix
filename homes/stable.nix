@@ -10,6 +10,7 @@
         ./home.nix
         ../programs/cli.nix
         ../programs/graphical.nix
+        ../programs/hypr.nix
         ../programs/texlive.nix
       ];
     };
