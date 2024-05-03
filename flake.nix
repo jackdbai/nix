@@ -7,14 +7,14 @@
 
   inputs = {
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts = {
       url = github:StevenBlack/hosts;
     };
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/master";
+      url = "github:nixos/nixpkgs?ref=nixos-23.11";
     };
   };
 

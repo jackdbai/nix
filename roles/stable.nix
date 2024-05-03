@@ -45,7 +45,7 @@
 
   # Permit Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
-    #hMM
+    "electron-25.9.0"
   ];
 
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];

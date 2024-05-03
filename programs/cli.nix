@@ -6,6 +6,7 @@
     android-udev-rules
     dnsutils
     hugo
+    lame
     nettools
     nmap
   ];

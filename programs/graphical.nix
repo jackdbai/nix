@@ -2,18 +2,22 @@
 
 {
   home.packages = with pkgs; [
+    asunder
     brave
+    beeper
     discord
-    element-desktop
+    # element-desktop
     # etcher
     gimp
     github-desktop
-    kitty
+    # kitty
     localsend
     obsidian
+    picard
     # pulsar
     signal-desktop
-    xfce.thunar
+    # xfce.thunar
     vscodium
+    vlc
   ];
 }
