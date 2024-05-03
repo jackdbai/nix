@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     asunder
     brave
-    beeper
+    # beeper
     discord
     # element-desktop
     # etcher

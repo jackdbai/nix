@@ -9,5 +9,6 @@
     lame
     nettools
     nmap
+    yt-dlp
   ];
 }
