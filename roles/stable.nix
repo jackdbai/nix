@@ -23,7 +23,7 @@
   services.printing.enable = true;
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
 
@@ -37,8 +37,8 @@
   };
   services.xserver.desktopManager.gnome.enable = true;
 
-  programs.sway.enable = true;
-  programs.hyprland.enable = true;
+  # programs.sway.enable = true;
+  # programs.hyprland.enable = true;
 
   # Enable zsh
   programs.zsh.enable = true;

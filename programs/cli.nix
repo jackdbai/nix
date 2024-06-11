@@ -9,6 +9,7 @@
     lame
     nettools
     nmap
+    steam-run
     yt-dlp
   ];
 }

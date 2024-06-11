@@ -7,14 +7,14 @@
 
   inputs = {
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts = {
       url = github:StevenBlack/hosts;
     };
     nixpkgs = {
-      url = "github:nixos/nixpkgs?ref=nixos-23.11";
+      url = "github:nixos/nixpkgs?ref=nixos-24.05";
     };
   };
 
@@ -34,11 +34,11 @@
           (./modules/sbhosts.nix)
         ];
       };
-      "flannery" = nixpkgs.lib.nixosSystem {
+      "alita" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           /* ./modules */
-          ./hosts/flannery
+          ./hosts/alita
           ./roles/stable.nix
           home-manager.nixosModules.home-manager
           (./homes/stable.nix)
