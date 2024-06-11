@@ -21,14 +21,14 @@
   outputs = { self, hosts, home-manager, nixpkgs, ... }: {
 
     nixosConfigurations = {
-      "elle" = nixpkgs.lib.nixosSystem {
+      "exodus" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           /* ./modules */
-          ./hosts/elle
-          ./roles/dev.nix
+          ./hosts/exodus
+          ./roles/stable.nix
           home-manager.nixosModules.home-manager
-          (./homes/dev.nix)
+          (./homes/stable.nix)
           # Enable stevenblack host file
           hosts.nixosModule
           (./modules/sbhosts.nix)
