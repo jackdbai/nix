@@ -81,13 +81,11 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  programs.adb.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       curl
       git

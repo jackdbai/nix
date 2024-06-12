@@ -4,17 +4,18 @@
   home.packages = with pkgs; [
     asunder
     brave
-    # beeper
+    burpsuite
     discord
-    # element-desktop
-    # etcher
+    element-desktop
     gimp
     github-desktop
     # kitty
     localsend
+    mediawriter
     obsidian
     picard
-    # pulsar
+    postman
+    rpi-imager
     signal-desktop
     # xfce.thunar
     vscodium

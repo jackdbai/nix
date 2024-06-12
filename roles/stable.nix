@@ -37,10 +37,10 @@
   };
   services.xserver.desktopManager.gnome.enable = true;
 
-  # programs.sway.enable = true;
+  # Enable programs
+  programs.adb.enable = true;
   # programs.hyprland.enable = true;
-
-  # Enable zsh
+  # programs.sway.enable = true;
   programs.zsh.enable = true;
 
   # Permit Insecure Packages
@@ -53,7 +53,7 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" ];
     shell = pkgs.zsh;
   };
 

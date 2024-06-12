@@ -78,8 +78,6 @@
     #media-session.enable = true;
   };
 
-  programs.adb.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -87,7 +85,7 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  firefox
     #  thunderbird
