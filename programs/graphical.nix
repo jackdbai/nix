@@ -9,15 +9,14 @@
     element-desktop
     gimp
     github-desktop
-    # kitty
     localsend
     mediawriter
+    newsflash
     obsidian
     picard
     postman
     rpi-imager
     signal-desktop
-    # xfce.thunar
     vscodium
     vlc
   ];

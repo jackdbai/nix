@@ -9,6 +9,7 @@
     obsidian
     pulsar
     sublime4
+    xfce.thunar
     vscodium
   ];
 }

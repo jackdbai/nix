@@ -21,7 +21,21 @@
   outputs = { self, hosts, home-manager, nixpkgs, ... }: {
 
     nixosConfigurations = {
-      "exodus" = nixpkgs.lib.nixosSystem {
+
+      "alita" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          /* ./modules */
+          ./hosts/alita
+          ./roles/stable.nix
+          home-manager.nixosModules.home-manager
+          (./homes/stable.nix)
+          # Enable stevenblack host file
+          hosts.nixosModule
+          (./modules/sbhosts.nix)
+        ];
+      };
+        "exodus" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           /* ./modules */
@@ -34,14 +48,14 @@
           (./modules/sbhosts.nix)
         ];
       };
-      "alita" = nixpkgs.lib.nixosSystem {
+      "heatbox" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           /* ./modules */
-          ./hosts/alita
-          ./roles/stable.nix
+          ./hosts/heatbox
+          ./roles/dev.nix
           home-manager.nixosModules.home-manager
-          (./homes/stable.nix)
+          (./homes/dev.nix)
           # Enable stevenblack host file
           hosts.nixosModule
           (./modules/sbhosts.nix)

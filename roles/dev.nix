@@ -55,10 +55,10 @@
   #  enable = true;
   #};
 
-  # Enable Sway
-  programs.sway.enable = true;
-
-  # Enable zsh
+  # Enable programs
+  programs.adb.enable = true;
+  # programs.hyprland.enable = true;
+  # programs.sway.enable = true;
   programs.zsh.enable = true;
 
   #programs.gnupg.agent = {
@@ -80,7 +80,7 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" ];
     shell = pkgs.zsh;
   };
 
