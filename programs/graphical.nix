@@ -17,6 +17,7 @@
     postman
     rpi-imager
     signal-desktop
+    transmission-gtk
     vscodium
     vlc
   ];
