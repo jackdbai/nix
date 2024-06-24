@@ -17,6 +17,7 @@
       "adblistu"="diff <(adb shell pm list packages) <(adb shell pm list packages -u)";
       "adbreinst"="adb shell cmd package install-existing";
       "adbuninst"="adb shell pm uninstall --user 0";
+      "cleanup"="sudo nix-collect-garbage -d && sudo nixos-rebuild switch";
       "gc"="sudo nix-collect-garbage -d";
       "rebuild" = "sudo rm -rf /etc/nixos/* && sudo cp -r /home/jack/git/nix/* /etc/nixos/. && sudo nixos-rebuild switch";
       "regit" = "cd ~/git/nix && git pull && sudo rm -rf /etc/nixos/* && sudo cp -r /home/jack/git/nix/* /etc/nixos/. && sudo nixos-rebuild switch";
