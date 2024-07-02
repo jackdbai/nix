@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     curl
     git
+    networkmanagerapplet
     wget
     vim
   ];
@@ -27,26 +28,24 @@
     openFirewall = true;
   };
 
+  # Enable TLP
+  # services.tlp.enable = true;
+
   # Enable graphical environment (NOT STRICTLY X)
   services.xserver.enable = true;
 
   # Enable the GNOME/Sway Desktop Environment.
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-  services.xserver.desktopManager.gnome.enable = true;
-
+  # services.xserver.displayManager.gdm = {
+  #   enable = true;
+  #   wayland = true;
+  # };
+  # services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.desktopManager.mate.enable = true;
+  
   # Enable programs
   programs.adb.enable = true;
-  # programs.hyprland.enable = true;
-  # programs.sway.enable = true;
   programs.zsh.enable = true;
-
-  # Permit Insecure Packages
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
 
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
   # Define a user account. Don't forget to set a password with ‘passwd’.

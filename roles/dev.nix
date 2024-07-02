@@ -23,7 +23,7 @@
   services.gnome.gnome-keyring.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable greetd login
   /* services.greetd = {
@@ -44,11 +44,11 @@
   ''; */
 
   # Enable the GNOME/Sway Desktop Environment.
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm = {
+  #   enable = true;
+  #   wayland = true;
+  # };
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Enable Hyprland
   #programs.hyprland = {

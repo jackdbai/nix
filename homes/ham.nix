@@ -11,7 +11,6 @@
         ../programs/cli.nix
         ../programs/graphical.nix
         ../programs/ham.nix
-        ../programs/texlive.nix
       ];
     };
   };

@@ -14,7 +14,7 @@
       url = github:StevenBlack/hosts;
     };
     nixpkgs = {
-      url = "github:nixos/nixpkgs?ref=nixos-24.05";
+      url = "github:NixOS/nixpkgs?ref=nixos-24.05";
     };
   };
 
@@ -35,14 +35,27 @@
           (./modules/sbhosts.nix)
         ];
       };
+      "envy" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          /* ./modules */
+          ./hosts/envy
+          ./roles/ham.nix
+          home-manager.nixosModules.home-manager
+          (./homes/ham.nix)
+          # Enable stevenblack host file
+          hosts.nixosModule
+          (./modules/sbhosts.nix)
+        ];
+      };
         "exodus" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           /* ./modules */
           ./hosts/exodus
-          ./roles/stable.nix
+          ./roles/dev.nix
           home-manager.nixosModules.home-manager
-          (./homes/stable.nix)
+          (./homes/dev.nix)
           # Enable stevenblack host file
           hosts.nixosModule
           (./modules/sbhosts.nix)

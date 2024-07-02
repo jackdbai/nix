@@ -18,6 +18,7 @@
     rpi-imager
     signal-desktop
     transmission-gtk
+    # virtualbox
     vscodium
     vlc
   ];

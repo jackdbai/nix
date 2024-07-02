@@ -10,11 +10,11 @@
     users.jack = {...}: {
       imports = [
         ./home.nix
-        ../modules/display/sway.nix
+        # ../modules/display/sway.nix
         ../programs/cli.nix
         ../programs/dev.nix
         ../programs/graphical.nix
-        ../programs/texlive.nix
+        ../programs/ham.nix
       ];
     };
   };
