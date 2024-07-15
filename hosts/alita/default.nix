@@ -10,13 +10,11 @@
       ./hardware-configuration.nix
     ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-2921431d-9bf0-4b2c-b0fd-f62a5e96b40d".device = "/dev/disk/by-uuid/2921431d-9bf0-4b2c-b0fd-f62a5e96b40d";
+  boot.initrd.luks.devices."luks-b208f494-8bab-4d98-b780-4cf0d9ed3f56".device = "/dev/disk/by-uuid/b208f494-8bab-4d98-b780-4cf0d9ed3f56";
   networking.hostName = "alita"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -50,7 +48,10 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager = {
+    gnome.enable = true;
+    xterm.enable = false;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -87,7 +88,7 @@
     description = "Jack";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  firefox
+      firefox
     #  thunderbird
     ];
   };
@@ -98,10 +99,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    curl
-    git
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

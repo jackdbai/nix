@@ -52,7 +52,7 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" "docker" "adbusers" ];
+    extraGroups = [ "adbusers" "dialout" "docker" "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
 
