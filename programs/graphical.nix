@@ -17,6 +17,7 @@
     postman
     rpi-imager
     signal-desktop
+    teamviewer
     transmission-gtk
     # virtualbox
     vscodium

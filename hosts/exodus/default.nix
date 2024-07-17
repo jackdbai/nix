@@ -10,13 +10,11 @@
       ./hardware-configuration.nix
     ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-8963a644-bd07-4f69-83d0-6a9d0810fba7".device = "/dev/disk/by-uuid/8963a644-bd07-4f69-83d0-6a9d0810fba7";
+  boot.initrd.luks.devices."luks-6e2b1644-6583-4839-82c2-c8051a3bb5a1".device = "/dev/disk/by-uuid/6e2b1644-6583-4839-82c2-c8051a3bb5a1";
   networking.hostName = "exodus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -45,19 +43,15 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.tlp.enable = true;
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm = {
-  #   enable = true;
-  #   wayland = true;
-  # };
-  # services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager = {
+    gnome.enable = true;
+    xterm.enable = false;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -94,7 +88,7 @@
     description = "Jack";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #  firefox
+      firefox
     #  thunderbird
     ];
   };
@@ -105,10 +99,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    curl
     git
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
