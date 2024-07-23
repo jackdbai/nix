@@ -11,4 +11,4 @@ mv ~/git/nix/hosts/$MACHINE/configuration.nix ~/git/nix/hosts/$MACHINE/default.n
 sudo rm -rf /etc/nixos/*
 sudo cp -r ~/git/nix/* /etc/nixos/.
 cd ~/git/nix
-sudo nixos-rebuild switch --accept-flake-config --flake .#$MACHINE
+sudo nixos-rebuild switch --flake .#$MACHINE
