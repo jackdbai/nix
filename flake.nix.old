@@ -1,5 +1,5 @@
 {
-  description = "nixqsl";
+  description = "jackdbai";
 
   nixConfig = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -18,62 +18,62 @@
     };
   };
 
-  outputs = { self, home-manager, hosts, nixpkgs, ... }: {
+  outputs = { self, hosts, home-manager, nixpkgs, ... }: {
 
     nixosConfigurations = {
 
-      "dev" = nixpkgs.lib.nixosSystem {
+      "alita" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           /* ./modules */
-          ./hostfiles
-          ./roles/dev.nix
-          home-manager.nixosModules.home-manager
-          (./homes/dev.nix)
-          hosts.nixosModule
-          (./modules/sbhosts.nix)
-        ];
-      };
-
-      "ham" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          /* ./modules */
-          ./hostfiles
-          ./roles/ham.nix
-          home-manager.nixosModules.home-manager
-          (./homes/ham.nix)
-          hosts.nixosModule
-          (./modules/sbhosts.nix)
-        ];
-      };
-
-      "server" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          /* ./modules */
-          ./hostfiles
-          ./roles/server.nix
-          home-manager.nixosModules.home-manager
-          (./homes/server.nix)
-          hosts.nixosModule
-          (./modules/sbhosts.nix)
-        ];
-      };
-
-      "stable" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          /* ./modules */
-          ./hostfiles
+          ./hosts/alita
           ./roles/stable.nix
           home-manager.nixosModules.home-manager
           (./homes/stable.nix)
+          # Enable stevenblack host file
           hosts.nixosModule
           (./modules/sbhosts.nix)
         ];
       };
-      
+      "envy" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          /* ./modules */
+          ./hosts/envy
+          ./roles/ham.nix
+          home-manager.nixosModules.home-manager
+          (./homes/ham.nix)
+          # Enable stevenblack host file
+          hosts.nixosModule
+          (./modules/sbhosts.nix)
+        ];
+      };
+        "exodus" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          /* ./modules */
+          ./hosts/exodus
+          ./roles/stable.nix
+          home-manager.nixosModules.home-manager
+          (./homes/stable.nix)
+          # Enable stevenblack host file
+          hosts.nixosModule
+          (./modules/sbhosts.nix)
+        ];
+      };
+      "heatbox" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          /* ./modules */
+          ./hosts/heatbox
+          ./roles/dev.nix
+          home-manager.nixosModules.home-manager
+          (./homes/dev.nix)
+          # Enable stevenblack host file
+          hosts.nixosModule
+          (./modules/sbhosts.nix)
+        ];
+      };
     };
 
   };
