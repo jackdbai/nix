@@ -1,9 +1,10 @@
 #!/bin/sh
 
 echo "Please enter a hostname:"
-read $MACHINE
+read input
+export MACHINE="$input"
 curl -L "https://github.com/jackdbai/nix/tarball/master" | tar xz -C ~/
-mv $PWD/jackdbai* ~/nix
+mv ~/jackdbai* ~/nix
 mkdir ~/nix/hostfiles
 sed 's/nixos/'$MACHINE'/g' /etc/nixos/configuration.nix > ~/nix/hostfiles/default.nix
 cp /etc/nixos/hardware-configuration.nix ~/nix/hostfiles/.
@@ -12,4 +13,4 @@ cp -r ~/nix/hostfiles ~/.nixbackups
 sudo rm -rf /etc/nixos/*
 sudo cp -r ~/nix/* /etc/nixos/.
 cd ~/nix
-sudo nixos-rebuild switch --flake .#ham
+sudo nixos-rebuild switch --flake .#stable

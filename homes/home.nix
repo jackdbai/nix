@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "jack";
-  home.homeDirectory = "/home/jack";
+  # home.username = "jack";
+  # home.homeDirectory = "/home/jack";
 
   # Enable significant programs
   programs.gh.enable = true;
