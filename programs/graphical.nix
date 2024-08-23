@@ -9,6 +9,7 @@
     element-desktop
     gimp
     github-desktop
+    # kitty
     localsend
     mediawriter
     newsflash

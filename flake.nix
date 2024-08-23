@@ -22,6 +22,19 @@
 
     nixosConfigurations = {
 
+      "asahi" = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          /* ./modules */
+          ./hostfiles
+          ./roles/stable.nix
+          home-manager.nixosModules.home-manager
+          (./homes/stable.nix)
+          hosts.nixosModule
+          (./modules/hosts.nix)
+        ];
+      };
+      
       "dev" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -31,7 +44,7 @@
           home-manager.nixosModules.home-manager
           (./homes/dev.nix)
           hosts.nixosModule
-          (./modules/sbhosts.nix)
+          (./modules/hosts.nix)
         ];
       };
 
@@ -44,7 +57,7 @@
           home-manager.nixosModules.home-manager
           (./homes/ham.nix)
           hosts.nixosModule
-          (./modules/sbhosts.nix)
+          (./modules/hosts.nix)
         ];
       };
 
@@ -57,7 +70,7 @@
           home-manager.nixosModules.home-manager
           (./homes/server.nix)
           hosts.nixosModule
-          (./modules/sbhosts.nix)
+          (./modules/hosts.nix)
         ];
       };
 
@@ -70,7 +83,7 @@
           home-manager.nixosModules.home-manager
           (./homes/stable.nix)
           hosts.nixosModule
-          (./modules/sbhosts.nix)
+          (./modules/hosts.nix)
         ];
       };
       

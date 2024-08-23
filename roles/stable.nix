@@ -35,17 +35,18 @@
   services.xserver.enable = true;
 
   # Enable the GNOME/Sway Desktop Environment.
-  # services.xserver.displayManager.gdm = {
-  #   enable = true;
-  #   wayland = true;
-  # };
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+  services.xserver.desktopManager.gnome.enable = true;
   # services.xserver.displayManager.lightdm.enable = true;
   # services.xserver.desktopManager.mate.enable = true;
   
   # Enable programs
   programs.adb.enable = true;
   programs.zsh.enable = true;
+  # programs.dconf.enable = true;
 
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
   # Define a user account. Don't forget to set a password with ‘passwd’.

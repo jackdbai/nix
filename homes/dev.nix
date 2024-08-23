@@ -16,6 +16,27 @@
         ../programs/graphical.nix
         ../programs/ham.nix
       ];
+
+
+      # GNOME Package Exclusion
+      # environment.gnome.excludedPackages = (with pkgs; [
+      #   gnome-photos
+      #   gnome-tour
+      # ]) ++ (with pkgs.gnome; [
+      #   cheese
+      #   gnome-music
+      #   gedit
+      #   epiphany
+      #   geary
+      #   gnome-characters
+      #   tali
+      #   iagno
+      #   hitori
+      #   atomix
+      #   yelp
+      #   gnome-initial-setup
+      # ]);
+
     };
   };
 }
