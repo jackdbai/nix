@@ -35,8 +35,8 @@
           enable-hot-corners = false;
         };
         "org/gnome/desktop/background" = {
-          picture-uri = "hhttps://upload.wikimedia.org/wikipedia/commons/4/4d/Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg";
-          picture-uri-dark = "https://upload.wikimedia.org/wikipedia/commons/4/4d/Saint_Jerome_Writing-Caravaggio_%281605-6%29.jpg";
+          picture-uri = "file:///home/jack/nix/StJerome.jpg";
+          picture-uri-dark = "file:///home/jack/nix/StJerome.jpg";
           picture-options = "zoom";
         };
         "org/gnome/shell" = {
