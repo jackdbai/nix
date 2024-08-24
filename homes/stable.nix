@@ -24,7 +24,7 @@
           tap-to-click = false;
           click-method = "'fingers'";
         };
-        "org/gnome/desktop/session/" = {
+        "org/gnome/desktop/session" = {
           idle-delay = "uint32 0";
         };
         "org/gnome/mutter" = {
