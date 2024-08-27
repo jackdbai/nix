@@ -1,16 +1,21 @@
 #!/bin/sh
 
-echo "Please enter a hostname:"
-read input
-export MACHINE="$input"
-curl -L "https://github.com/jackdbai/nix/tarball/master" | tar xz -C ~/
-mv ~/jackdbai* ~/nix
-mkdir ~/nix/hostfiles
-sed 's/nixos/'$MACHINE'/g' /etc/nixos/configuration.nix > ~/nix/hostfiles/default.nix
-cp /etc/nixos/hardware-configuration.nix ~/nix/hostfiles/.
-mkdir ~/.nixbackups
-cp -r ~/nix/hostfiles ~/.nixbackups
-sudo rm -rf /etc/nixos/*
-sudo cp -r ~/nix/* /etc/nixos/.
-cd ~/nix
-sudo nixos-rebuild switch --flake .#stable
+if command -v git &> /dev/null; then
+  echo "Installing Jack's NixOS Configs..."
+  echo "-----"
+else
+  echo "Git is not available."
+  echo "Please do: nix-shell -p git"
+  exit
+fi
+read -rp "Please enter a hostname: " MACHINE
+git clone https://github.com/jackdbai/nix ~/git/nix
+cd ~/git/nix
+rm -r ./hostfiles/*
+mkdir ./hostfiles/"$MACHINE"
+sed 's/nixos/'$MACHINE'/g' /etc/nixos/configuration.nix > ./hostfiles/"$MACHINE"/default.nix
+cp /etc/nixos/hardware-configuration.nix ./hostfiles/"$MACHINE"/.
+git config --global user.name "installer"
+git config --global user.email "installer@jackdbai.dev"
+git add .
+sudo nixos-rebuild switch --flake ~/git/nix#stable

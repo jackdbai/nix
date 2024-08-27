@@ -19,7 +19,7 @@
     rpi-imager
     signal-desktop
     teamviewer
-    transmission-gtk
+    transmission_4-gtk
     # virtualbox
     vscodium
     vlc

@@ -17,15 +17,12 @@
       "adblistu"="diff <(adb shell pm list packages) <(adb shell pm list packages -u)";
       "adbreinst"="adb shell cmd package install-existing";
       "adbuninst"="adb shell pm uninstall --user 0";
-      "cleanup"="sudo nix-collect-garbage -d && sudo nixos-rebuild switch";
-      "gc"="sudo nix-collect-garbage -d";
-      "rebuild-asahi" = "cp ~/nix/hostfiles/* ~/.nixbackups/. && cd ~/nix && sudo rm -rf /etc/nixos/* && sudo cp -r ./* /etc/nixos/. && sudo nixos-rebuild switch --flake .#asahi";
-      "rebuild-dev" = "cp ~/nix/hostfiles/* ~/.nixbackups/. && cd ~/nix && sudo rm -rf /etc/nixos/* && sudo cp -r ./* /etc/nixos/. && sudo nixos-rebuild switch --flake .#dev";
-      "rebuild-ham" = "cp ~/nix/hostfiles/* ~/.nixbackups/. && cd ~/nix && sudo rm -rf /etc/nixos/* && sudo cp -r ./* /etc/nixos/. && sudo nixos-rebuild switch --flake .#ham";
-      "rebuild-server" = "cp ~/nix/hostfiles/* ~/.nixbackups/. && cd ~/nix && sudo rm -rf /etc/nixos/* && sudo cp -r ./* /etc/nixos/. && sudo nixos-rebuild switch --flake .#server";
-      "rebuild-stable" = "cp ~/nix/hostfiles/* ~/.nixbackups/. && cd ~/nix && sudo rm -rf /etc/nixos/* && sudo cp -r ./* /etc/nixos/. && sudo nixos-rebuild switch --flake .#stable";
-      "regit" = "cd ~/git/nix && git pull && sudo rm -rf /etc/nixos/* && sudo cp -r /home/jack/git/nix/* /etc/nixos/. && sudo nixos-rebuild switch";
-      "upgrade" = "sudo nixos-rebuild switch --upgrade";
+      "cleanup"="sudo nix-collect-garbage -d";
+      "rebuild-asahi" = "sudo nixos-rebuild switch --flake ~/git/nixasahi";
+      "rebuild-dev" = "sudo nixos-rebuild switch --flake ~/git/nixdev";
+      "rebuild-ham" = "sudo nixos-rebuild switch --flake ~/git/nixham";
+      "rebuild-server" = "sudo nixos-rebuild switch --flake ~/git/nixserver";
+      "rebuild-stable" = "sudo nixos-rebuild switch --flake ~/git/nixstable";
     };
   };
 
