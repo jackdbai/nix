@@ -1,10 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘alita-help’).
+# and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
 
 {
+  # Enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -14,7 +17,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-7f215179-6375-4070-a735-f5756982a5ce".device = "/dev/disk/by-uuid/7f215179-6375-4070-a735-f5756982a5ce";
+  boot.initrd.luks.devices."luks-1ef5859d-c019-4e4e-9406-69c9af4afea5".device = "/dev/disk/by-uuid/1ef5859d-c019-4e4e-9406-69c9af4afea5";
   networking.hostName = "alita"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -51,9 +54,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
+  services.xserver = {
     layout = "us";
-    variant = "";
+    xkbVariant = "";
   };
 
   # Enable CUPS to print documents.
@@ -83,10 +86,12 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "adbusers" "dialout" "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [
-    brave
+      brave
     #  firefox
+      github-desktop
+      vscodium
     #  thunderbird
     ];
   };
@@ -97,9 +102,29 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    curl
+    git
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
   ];
+
+  # Enable podman
+  virtualisation = {
+    /* virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    }; */
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -125,7 +150,7 @@
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://alita.org/alita/options.html).
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
