@@ -5,27 +5,14 @@
 { config, pkgs, ... }:
 
 {
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.initrd.luks.devices."luks-1ef5859d-c019-4e4e-9406-69c9af4afea5".device = "/dev/disk/by-uuid/1ef5859d-c019-4e4e-9406-69c9af4afea5";
-  networking.hostName = "alita"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -54,16 +41,15 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -82,16 +68,16 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # programs.zsh.enable = true;
+  # programs.adb.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "adbusers" "dialout" "docker" "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      brave
-    #  firefox
-      github-desktop
-      vscodium
+      firefox
     #  thunderbird
     ];
   };
@@ -102,29 +88,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    curl
-    git
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
   ];
-
-  # Enable podman
-  virtualisation = {
-    /* virtualbox.host = {
-      enable = true;
-      enableExtensionPack = true;
-    }; */
-    podman = {
-      enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

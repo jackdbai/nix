@@ -50,7 +50,7 @@
   programs.home-manager.enable = true;
 
   # Shell settings #
-  programs.zsh = {
+  programs.bash = {
     enable = true;
     shellAliases = {
       # TODO add aliases
@@ -59,11 +59,7 @@
       "adbreinst"="adb shell cmd package install-existing";
       "adbuninst"="adb shell pm uninstall --user 0";
       "cleanup"="sudo nix-collect-garbage -d";
-      "rebuild-asahi" = "sudo nixos-rebuild switch --flake ~/git/nixasahi";
-      "rebuild-dev" = "sudo nixos-rebuild switch --flake ~/git/nixdev";
-      "rebuild-ham" = "sudo nixos-rebuild switch --flake ~/git/nixham";
-      "rebuild-server" = "sudo nixos-rebuild switch --flake ~/git/nixserver";
-      "rebuild-stable" = "sudo nixos-rebuild switch --flake ~/git/nixstable";
+      "rebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#dev";
     };
   };
 

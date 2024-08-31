@@ -16,10 +16,10 @@
 
   outputs = { self, home-manager, hosts, nixpkgs, ... }: {
 
-    nixosConfigurations.alita = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.dev = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./configuration.nix
+        ./config.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
