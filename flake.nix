@@ -16,15 +16,15 @@
 
   outputs = { self, home-manager, hosts, nixpkgs, ... }: {
 
-    nixosConfigurations.dev = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.main = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./configuration.nix
+        ./hostfiles/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.jack = import ./home.nix;
+          home-manager.users.jack = import ./home;
         }
         hosts.nixosModule
         (./modules/hosts.nix)

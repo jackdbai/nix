@@ -10,19 +10,19 @@
     element-desktop
     gimp
     github-desktop
-    # kitty
-    librewolf
+    # librewolf
     localsend
     mediawriter
     newsflash
     obsidian
+    orca-slicer
     picard
     postman
     rpi-imager
     signal-desktop
     teamviewer
     transmission_4-gtk
-    # virtualbox
+    # virtualbox # Takes too long to build tbh
     vscodium
     vlc
   ];
