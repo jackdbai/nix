@@ -10,7 +10,7 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hosts.url = github:StevenBlack/hosts;
+    hosts.url = "github:StevenBlack/hosts";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.05";
   };
 
@@ -19,7 +19,7 @@
     nixosConfigurations.dev = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./config.nix
+        ./configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
-
   imports = [
-    ./programs.nix
+    ./programs/cli.nix
+    ./programs/graphical.nix
+    # ./programs/ham.nix
+    # ./programs/texlive.nix
   ];
 
   ### dconf settings that I usually change immediately on installing a GNOME DE
@@ -34,10 +36,11 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
-        "brave-browser.desktop"
+        # "brave-browser.desktop"
         "org.gnome.Calendar.desktop"
         "discord.desktop"
         "github-desktop.desktop"
+        "librewolf.desktop"
         "obsidian.desktop"
         "codium.desktop"
         "org.gnome.Console.desktop"
