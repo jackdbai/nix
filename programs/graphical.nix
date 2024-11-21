@@ -2,17 +2,18 @@
 
 {
   home.packages = with pkgs; [
-    _1password
     asunder
     brave
     burpsuite
     discord
     element-desktop
+    firefox-esr
     gimp
     github-desktop
+    # handbrake
     # librewolf
     localsend
-    mediawriter
+    makemkv
     newsflash
     obsidian
     orca-slicer

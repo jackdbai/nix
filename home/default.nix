@@ -8,6 +8,9 @@
     ../programs/ham.nix
     ../programs/texlive.nix
 
+    # Import Flatpaks
+    # ../modules/flatpaks.nix
+
     # Import GNOME settings
     ./gnome.nix
   ];
@@ -26,6 +29,7 @@
       "adbuninst"="adb shell pm uninstall --user 0";
       "cleanup"="sudo nix-collect-garbage -d";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#main";
+      "nvrebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#nvidia";
     };
   };
 

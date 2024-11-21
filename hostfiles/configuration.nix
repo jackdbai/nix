@@ -80,6 +80,9 @@
   # Enable Docker
   virtualisation.docker.enable = true;
 
+  # Enable ADB
+  programs.adb.enable = true;
+
   system.stateVersion = "23.11";
 
 }
