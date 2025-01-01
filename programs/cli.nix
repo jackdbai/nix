@@ -6,6 +6,7 @@
     android-udev-rules
     dnsutils
     # docker-compose
+    fdk-aac-encoder
     git
     hugo
     lame

@@ -14,8 +14,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-6c758694-f86d-4033-8bdf-31f01b02bbbd".device = "/dev/disk/by-uuid/6c758694-f86d-4033-8bdf-31f01b02bbbd";
-  networking.hostName = "heatbox"; # Define your hostname.
+  boot.initrd.luks.devices."luks-cfcebfe2-3b03-4b3f-9f2f-ac97e5087fdb".device = "/dev/disk/by-uuid/cfcebfe2-3b03-4b3f-9f2f-ac97e5087fdb";
+  networking.hostName = "agatha"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -76,6 +76,8 @@
     #media-session.enable = true;
   };
 
+  services.solaar.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -83,9 +85,9 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "docker"];
     packages = with pkgs; [
-      firefox
+    #  firefox
     #  thunderbird
     ];
   };

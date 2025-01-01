@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    _1password-gui
     asunder
     brave
     burpsuite
@@ -10,6 +11,7 @@
     firefox-esr
     gimp
     github-desktop
+    google-chrome
     # handbrake
     # librewolf
     localsend
