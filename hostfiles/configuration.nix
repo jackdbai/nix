@@ -14,8 +14,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-cfcebfe2-3b03-4b3f-9f2f-ac97e5087fdb".device = "/dev/disk/by-uuid/cfcebfe2-3b03-4b3f-9f2f-ac97e5087fdb";
-  networking.hostName = "agatha"; # Define your hostname.
+  boot.initrd.luks.devices."luks-ef10064f-6965-484b-9851-7fc00bad95c2".device = "/dev/disk/by-uuid/ef10064f-6965-484b-9851-7fc00bad95c2";
+  networking.hostName = "exodus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -59,8 +59,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  programs.adb.enable = true;
+
   # Enable sound with pipewire.
-  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -76,8 +77,6 @@
     #media-session.enable = true;
   };
 
-  services.solaar.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -85,12 +84,14 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "docker" ];
     packages = with pkgs; [
-    #  firefox
-    #  thunderbird
+    #
     ];
   };
+
+  # Install firefox.
+  #programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -98,6 +99,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    git
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
@@ -127,6 +129,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
 }

@@ -12,7 +12,7 @@
     gimp
     github-desktop
     google-chrome
-    # handbrake
+    handbrake
     # librewolf
     localsend
     makemkv
