@@ -5,7 +5,7 @@
     android-tools
     android-udev-rules
     dnsutils
-    # docker-compose
+    docker-compose
     fdk-aac-encoder
     git
     hugo
@@ -13,7 +13,7 @@
     nettools
     nmap
     steam-run
+    wget
     yt-dlp
-    zsh
   ];
 }

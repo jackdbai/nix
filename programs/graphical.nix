@@ -26,6 +26,7 @@
     teamviewer
     transmission_4-gtk
     # virtualbox # Takes too long to build tbh
+    protonmail-desktop
     vscodium
     vlc
   ];

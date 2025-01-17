@@ -2,8 +2,9 @@
 
 {
   # Install GNOME extensions
-  home.packages = with pkgs; [
-    gnomeExtensions.docker
+  home.packages = with pkgs.gnomeExtensions; [
+    docker
+    paperwm
   ];
 
   # dconf settings that I usually change immediately on installing a GNOME DE
@@ -25,24 +26,42 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
+      show-battery-percentage = true;
     };
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/jack/git/nix/StIsidore.jpg";
-      picture-uri-dark = "file:///home/jack/git/nix/StIsidore.jpg";
-      picture-options = "centered";
+      picture-uri = "file:///home/jack/git/nix/notre-dame-de-montreal.jpgg";
+      picture-uri-dark = "file:///home/jack/git/nix/notre-dame-de-montreal.jpg";
+      picture-options = "zoom";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
     "org/gnome/shell" = {
+      enabled-extensions = [
+        "paperwm@paperwm.github.com"
+        "native-window-placement@gnome-shell-extensions.gcampax.github.com"
+        "docker@stickman_0x00.com"
+      ];
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
         "brave-browser.desktop"
-        # "org.gnome.Calendar.desktop"
+        "org.gnome.Calendar.desktop"
         "discord.desktop"
         "github-desktop.desktop"
         "obsidian.desktop"
+        "proton-mail.desktop"
         "codium.desktop"
         "org.gnome.Console.desktop"
+      ];
+    };
+    "org/gnome/shell/extensions/paperwm" = {
+      show-window-position-bar = false;
+      show-workspace-indicator = false;
+      show-focus-mode-icon = false;
+      show-open-position-icon = false;
+      cycle-width-steps = [
+        "0.33333333333333333"
+        "0.5"
+        "0.66666666666666667"
       ];
     };
   };
