@@ -45,10 +45,10 @@
         "org.gnome.Nautilus.desktop"
         "brave-browser.desktop"
         "org.gnome.Calendar.desktop"
-        "discord.desktop"
         "github-desktop.desktop"
         "obsidian.desktop"
         "proton-mail.desktop"
+        "signal-desktop.desktop"
         "codium.desktop"
         "org.gnome.Console.desktop"
       ];
