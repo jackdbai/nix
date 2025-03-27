@@ -14,6 +14,7 @@
     127.0.0.1   en.free-wallpapers.su
     127.0.0.1   goodfon.com
     127.0.0.1   hachyderm.io
+    127.0.0.1   hackers.town
     127.0.0.1   idposter.com
     127.0.0.1   infosec.exchange
     127.0.0.1   infosec.pub

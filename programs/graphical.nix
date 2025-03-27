@@ -10,6 +10,7 @@
     firefox-esr
     gimp
     github-desktop
+    google-chrome
     handbrake
     localsend
     makemkv

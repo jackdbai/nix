@@ -30,6 +30,8 @@
       "cleanup"="sudo nix-collect-garbage -d";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#main";
       "nvrebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#nvidia";
+      "update" = "sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix";
+      "upgrade" = "nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix && sudo nixos-rebuild switch --flake ~/git/nix#main";
     };
   };
 
