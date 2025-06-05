@@ -43,14 +43,11 @@
       ];
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
-        "brave-browser.desktop"
-        "org.gnome.Calendar.desktop"
+        "google-chrome.desktop"
+        "cursor.desktop"
         "github-desktop.desktop"
-        "obsidian.desktop"
-        "proton-mail.desktop"
         "signal-desktop.desktop"
-        "codium.desktop"
-        "org.gnome.Console.desktop"
+        "dev.warp.Warp.desktop"
       ];
     };
     "org/gnome/shell/extensions/paperwm" = {

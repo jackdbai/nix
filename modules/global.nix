@@ -5,7 +5,9 @@
 {
   # Disable GNOME default applications
   environment.gnome.excludePackages = with pkgs; [
+    gnome-calendar
     cheese
+    gnome-console
     epiphany
     totem
     yelp

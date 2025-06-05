@@ -3,11 +3,8 @@
 {
   home.packages = with pkgs; [
     asunder
-    brave
     burpsuite
-    discord
-    element-desktop
-    firefox-esr
+    code-cursor
     gimp
     github-desktop
     google-chrome
@@ -15,7 +12,6 @@
     localsend
     makemkv
     newsflash
-    obsidian
     orca-slicer
     picard
     postman
@@ -23,8 +19,7 @@
     signal-desktop
     teamviewer
     transmission_4-gtk
-    protonmail-desktop
-    vscodium
     vlc
+    warp-terminal
   ];
 }

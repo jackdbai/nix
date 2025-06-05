@@ -7,12 +7,10 @@
 
   inputs = {
     home-manager = {
-      # url = "github:nix-community/home-manager/release-24.11";
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts.url = "github:StevenBlack/hosts";
-    # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
@@ -22,6 +20,7 @@
       system = "x86_64-linux";
       modules = [
         ./hostfiles/configuration.nix
+        ./modules/global.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
