@@ -29,8 +29,8 @@
       show-battery-percentage = true;
     };
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/jack/git/nix/stleo.png";
-      picture-uri-dark = "file:///home/jack/git/nix/stleo.png";
+      picture-uri = "file:///home/jack/git/nix/notre-dame-de-montreal.jpg";
+      picture-uri-dark = "file:///home/jack/git/nix/notre-dame-de-montreal.jpg";
       picture-options = "zoom";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
