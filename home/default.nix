@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, system, inputs, ... }:
 
 {
   imports = [
@@ -34,6 +34,10 @@
       "upgrade" = "nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix && sudo nixos-rebuild switch --flake ~/git/nix#main";
     };
   };
+
+  home.packages = with pkgs; [
+    inputs.zen-browser.packages."${system}".default
+  ];
 
   home.stateVersion = "22.11";
 }

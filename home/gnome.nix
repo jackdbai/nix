@@ -42,11 +42,20 @@
         "docker@stickman_0x00.com"
       ];
       favorite-apps = [
+        # "chrome-gdfaincndogidkdcdkhapmbffkckdkhn-Default.desktop" #Gemini
         "org.gnome.Nautilus.desktop"
+        # "chrome-kjbdgfilnfhdoflbpgamdcdgpehopbep-Default.desktop" #Calendar
         "google-chrome.desktop"
-        "cursor.desktop"
+        # "cursor.desktop"
         "github-desktop.desktop"
+        # "chrome-fmgjjmmmlfnkbppncabfkddbjimcfncm-Default.desktop" #Gmail
+        # "chrome-eilembjdkfgodjkcjnpgpaenohkicgjd-Default.desktop" #Keep
+        # "chrome-hpfldicfbfomlpcikngkocigghgafkph-Default.desktop" #Messages
+        # "chrome-gjcmcplpgihbecacndmmbaenpfgimlec-Default.desktop" #NotebookLM
         "signal-desktop.desktop"
+        "dev.zed.Zed.desktop"
+        "zen-beta.desktop"
+        # "chrome-okhfeehhillipaleckndoboggdkcebmo-Default.desktop" #Tasks
         "dev.warp.Warp.desktop"
       ];
     };

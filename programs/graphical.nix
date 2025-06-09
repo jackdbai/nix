@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -7,7 +7,7 @@
     code-cursor
     gimp
     github-desktop
-    google-chrome
+    # google-chrome
     handbrake
     localsend
     makemkv
@@ -19,7 +19,10 @@
     signal-desktop
     teamviewer
     transmission_4-gtk
+    ungoogled-chromium
     vlc
     warp-terminal
+    zed-editor
+    inputs.zen-browser.packages."${system}".default
   ];
 }
