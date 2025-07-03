@@ -15,6 +15,13 @@
     ./gnome.nix
   ];
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    # extraConfig = (import ../modules/hypr {
+    #   inherit (config);
+    # });
+  };
+
   # Enable significant programs
   programs.gh.enable = true;
   programs.home-manager.enable = true;

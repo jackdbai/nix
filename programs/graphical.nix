@@ -7,7 +7,8 @@
     code-cursor
     gimp
     github-desktop
-    # google-chrome
+    ghostty
+    google-chrome
     handbrake
     localsend
     makemkv
@@ -19,9 +20,9 @@
     signal-desktop
     teamviewer
     transmission_4-gtk
-    ungoogled-chromium
+    # ungoogled-chromium
     vlc
-    warp-terminal
+    # warp-terminal
     zed-editor
     inputs.zen-browser.packages."${system}".default
   ];

@@ -2,8 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    aider-chat-full
     android-tools
     android-udev-rules
+    # claude-code
     dnsutils
     docker-compose
     fdk-aac-encoder
@@ -11,6 +13,7 @@
     hugo
     lame
     nettools
+    nixd
     nmap
     steam-run
     wget
