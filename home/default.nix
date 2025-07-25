@@ -3,9 +3,10 @@
 {
   imports = [
     # Import applications
+    # ../programs/androidstudio.nix
     ../programs/cli.nix
     ../programs/graphical.nix
-    ../programs/ham.nix
+    # ../programs/ham.nix
     ../programs/texlive.nix
 
     # Import Flatpaks

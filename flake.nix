@@ -31,7 +31,7 @@
           home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
         }
         hosts.nixosModule
-        (./modules/hosts.nix)
+        ./modules/hosts.nix
       ];
     };
 

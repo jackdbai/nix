@@ -29,4 +29,7 @@
 
   # Enable Docker
   virtualisation.docker.enable = true;
+
+  # Accept Android SDK EULA
+  nixpkgs.config.android_sdk.accept_license = true;
 }
