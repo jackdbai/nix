@@ -12,7 +12,7 @@
     flmsg
     flrig
     flwrap
-    gpredict
+    # gpredict
     gridtracker
     hamlib
     js8call

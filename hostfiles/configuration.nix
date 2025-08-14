@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-693ebffb-b1e4-4786-a5d5-107c0b419ab9".device = "/dev/disk/by-uuid/693ebffb-b1e4-4786-a5d5-107c0b419ab9";
+  boot.initrd.luks.devices."luks-a4ac1410-39d8-40e8-a667-cb179095e974".device = "/dev/disk/by-uuid/a4ac1410-39d8-40e8-a667-cb179095e974";
   networking.hostName = "exodus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -89,7 +89,7 @@
   };
 
   # Install firefox.
-  # programs.firefox.enable = true;
+  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

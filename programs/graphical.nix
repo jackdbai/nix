@@ -2,17 +2,15 @@
 
 {
   home.packages = with pkgs; [
-    _1password-gui
     asunder
+    brave
     burpsuite
     gimp
     github-desktop
     ghostty
-    google-chrome
     handbrake
     localsend
     mediawriter
-    newsflash
     orca-slicer
     picard
     postman
@@ -22,6 +20,7 @@
     teamviewer
     transmission_4-gtk
     vlc
+    vscodium
     zed-editor
     inputs.zen-browser.packages."${system}".default
   ];

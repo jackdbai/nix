@@ -4,7 +4,7 @@
   # Install GNOME extensions
   home.packages = with pkgs.gnomeExtensions; [
     docker
-    paperwm
+    # paperwm
   ];
 
   # dconf settings that I usually change immediately on installing a GNOME DE
@@ -44,18 +44,20 @@
       favorite-apps = [
         # "chrome-gdfaincndogidkdcdkhapmbffkckdkhn-Default.desktop" #Gemini
         "org.gnome.Nautilus.desktop"
-        # "chrome-kjbdgfilnfhdoflbpgamdcdgpehopbep-Default.desktop" #Calendar
+        "brave-browser.desktop"
+        "brave-kjbdgfilnfhdoflbpgamdcdgpehopbep-Default.desktop" #Calendar
         # "google-chrome.desktop"
         "github-desktop.desktop"
         # "chrome-fmgjjmmmlfnkbppncabfkddbjimcfncm-Default.desktop" #Gmail
         # "chrome-eilembjdkfgodjkcjnpgpaenohkicgjd-Default.desktop" #Keep
-        # "chrome-hpfldicfbfomlpcikngkocigghgafkph-Default.desktop" #Messages
+        "brave-hpfldicfbfomlpcikngkocigghgafkph-Default.desktop" #Messages
         # "chrome-gjcmcplpgihbecacndmmbaenpfgimlec-Default.desktop" #NotebookLM
         "proton-mail.desktop"
         "signal-desktop.desktop"
-        "dev.zed.Zed.desktop"
-        "zen-beta.desktop"
-        # "chrome-okhfeehhillipaleckndoboggdkcebmo-Default.desktop" #Tasks
+        "brave-okhfeehhillipaleckndoboggdkcebmo-Default.desktop" #Tasks
+        "codium.desktop"
+        # "dev.zed.Zed.desktop"
+        # "zen-beta.desktop"
         # "dev.warp.Warp.desktop"
         "com.mitchellh.ghostty.desktop"
       ];
