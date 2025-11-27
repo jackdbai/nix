@@ -2,9 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    # aider-chat-full
     android-tools
-    android-udev-rules
+    # android-udev-rules
     dnsutils
     docker-compose
     fdk-aac-encoder
@@ -14,6 +13,7 @@
     nettools
     nixd
     nmap
+    opencode
     steam-run
     wget
     yt-dlp

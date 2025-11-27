@@ -7,10 +7,7 @@
     ../programs/cli.nix
     ../programs/graphical.nix
     # ../programs/ham.nix
-    ../programs/texlive.nix
-
-    # Import Flatpaks
-    # ../modules/flatpaks.nix
+    #../programs/texlive.nix
 
     # Import GNOME settings
     ./gnome.nix
@@ -42,10 +39,6 @@
       "upgrade" = "nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix && sudo nixos-rebuild switch --flake ~/git/nix#main";
     };
   };
-
-  home.packages = with pkgs; [
-    inputs.zen-browser.packages."${system}".default
-  ];
 
   home.stateVersion = "22.11";
 }

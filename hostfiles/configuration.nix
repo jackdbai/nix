@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-a4ac1410-39d8-40e8-a667-cb179095e974".device = "/dev/disk/by-uuid/a4ac1410-39d8-40e8-a667-cb179095e974";
+  boot.initrd.luks.devices."luks-05ff19cb-341c-42fc-8717-0d2fae39790a".device = "/dev/disk/by-uuid/05ff19cb-341c-42fc-8717-0d2fae39790a";
   networking.hostName = "exodus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

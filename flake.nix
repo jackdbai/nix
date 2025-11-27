@@ -6,16 +6,16 @@
   };
 
   inputs = {
+    browseros.url = "github:jackdbai/browseros-flake";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts.url = "github:StevenBlack/hosts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs = { self, home-manager, hosts, nixpkgs, zen-browser, ... } @ inputs: {
+  outputs = { self, browseros, home-manager, hosts, nixpkgs, ... } @ inputs: {
 
     nixosConfigurations.main = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

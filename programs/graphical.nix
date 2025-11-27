@@ -2,15 +2,17 @@
 
 {
   home.packages = with pkgs; [
+    antigravity-fhs
     asunder
-    brave
+    blender
+    inputs.browseros.packages."${system}".default
     burpsuite
     gimp
     github-desktop
+    google-chrome
     ghostty
     handbrake
     localsend
-    mediawriter
     orca-slicer
     picard
     postman
@@ -22,6 +24,5 @@
     vlc
     vscodium
     zed-editor
-    inputs.zen-browser.packages."${system}".default
   ];
 }
