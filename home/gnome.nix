@@ -29,9 +29,9 @@
       show-battery-percentage = true;
     };
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/jack/git/nix/notre-dame-de-montreal.jpg";
-      picture-uri-dark = "file:///home/jack/git/nix/notre-dame-de-montreal.jpg";
-      picture-options = "zoom";
+      picture-uri = "file:///home/jack/.local/share/backgrounds/2025-12-05-11-02-35-nix-wallpaper-nineish-solarized-light.src.svg";
+      picture-uri-dark = "file:///home/jack/.local/share/backgrounds/2025-12-05-11-01-07-nix-wallpaper-nineish-solarized-dark.src.svg";
+      picture-options = "center";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
@@ -42,23 +42,12 @@
         "docker@stickman_0x00.com"
       ];
       favorite-apps = [
-        # "chrome-gdfaincndogidkdcdkhapmbffkckdkhn-Default.desktop" #Gemini
         "org.gnome.Nautilus.desktop"
-        "brave-browser.desktop"
-        "brave-kjbdgfilnfhdoflbpgamdcdgpehopbep-Default.desktop" #Calendar
-        # "google-chrome.desktop"
+        "browseros.desktop"
         "github-desktop.desktop"
-        # "chrome-fmgjjmmmlfnkbppncabfkddbjimcfncm-Default.desktop" #Gmail
-        # "chrome-eilembjdkfgodjkcjnpgpaenohkicgjd-Default.desktop" #Keep
-        "brave-hpfldicfbfomlpcikngkocigghgafkph-Default.desktop" #Messages
-        # "chrome-gjcmcplpgihbecacndmmbaenpfgimlec-Default.desktop" #NotebookLM
         "proton-mail.desktop"
         "signal-desktop.desktop"
-        "brave-okhfeehhillipaleckndoboggdkcebmo-Default.desktop" #Tasks
         "codium.desktop"
-        # "dev.zed.Zed.desktop"
-        # "zen-beta.desktop"
-        # "dev.warp.Warp.desktop"
         "com.mitchellh.ghostty.desktop"
       ];
     };

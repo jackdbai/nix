@@ -2,17 +2,18 @@
 
 {
   home.packages = with pkgs; [
-    antigravity-fhs
     asunder
-    blender
-    inputs.browseros.packages."${system}".default
+    brave
+    inputs.browseros.packages."${system}".default #BrowserOS
     burpsuite
+    freecad
     gimp
     github-desktop
-    google-chrome
     ghostty
     handbrake
+    lmstudio
     localsend
+    obsidian
     orca-slicer
     picard
     postman

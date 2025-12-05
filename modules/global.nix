@@ -3,7 +3,12 @@
 ### BE SURE TO ADD THIS TO IMPORTS: ../modules/global.nix
 
 {
-  programs.hyprland.enable = true;
+  # programs.hyprland = {
+  #   enable = true;
+  #   withUWSM = true;
+  #   xwayland.enable = true;
+  # };
+  # programs.waybar.enable = true;
 
   # Disable GNOME default applications
   environment.gnome.excludePackages = with pkgs; [
@@ -32,4 +37,16 @@
 
   # Accept Android SDK EULA
   nixpkgs.config.android_sdk.accept_license = true;
+
+  # Enable ZSH
+  programs.zsh.enable = true;
+  users.users.jack = {
+    shell = pkgs.zsh;
+  };
+  
+  # services.getty.autologinUser = "jack";
+  
+  # environment.systemPackages = with pkgs; [
+  #   waybar
+  # ];
 }

@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     android-tools
     # android-udev-rules
+    claude-code
     dnsutils
     docker-compose
     fdk-aac-encoder
