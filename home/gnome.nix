@@ -29,8 +29,8 @@
       show-battery-percentage = true;
     };
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/jack/.local/share/backgrounds/2025-12-05-11-02-35-nix-wallpaper-nineish-solarized-light.src.svg";
-      picture-uri-dark = "file:///home/jack/.local/share/backgrounds/2025-12-05-11-01-07-nix-wallpaper-nineish-solarized-dark.src.svg";
+      picture-uri = "file:///home/jack/git/creation-light.jpg";
+      picture-uri-dark = "file:///home/jack/git/creation-dark.jpg";
       picture-options = "center";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
@@ -47,7 +47,7 @@
         "github-desktop.desktop"
         "proton-mail.desktop"
         "signal-desktop.desktop"
-        "codium.desktop"
+        "dev.zed.Zed.desktop"
         "com.mitchellh.ghostty.desktop"
       ];
     };

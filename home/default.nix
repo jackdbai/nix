@@ -10,7 +10,7 @@
     ../programs/texlive.nix
 
     # Import GNOME settings
-    ./gnome.nix
+    #./gnome.nix
   ];
 
   # wayland.windowManager.hyprland = {
@@ -43,7 +43,6 @@
       "update" = "sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix";
       "upgrade" = "nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix && sudo nixos-rebuild switch --flake ~/git/nix#main";
     };
-    # history.size = 10000;
   };
 
   home.stateVersion = "22.11";

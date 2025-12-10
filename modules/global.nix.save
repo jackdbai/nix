@@ -24,9 +24,6 @@
   #  seahorse
   #];
 
-  # temp enable gnome keyring
-  services.gnome.gnome-keyring.enable = true;
-
   # Remove xterm
   services.xserver.excludePackages = [
     pkgs.xterm
@@ -46,9 +43,9 @@
   users.users.jack = {
     shell = pkgs.zsh;
   };
-
+  
   services.getty.autologinUser = "jack";
-
+  
   environment.systemPackages = with pkgs; [
     waybar
   ];

@@ -5,6 +5,7 @@
     android-tools
     # android-udev-rules
     claude-code
+    cursor-cli
     dnsutils
     docker-compose
     fdk-aac-encoder
