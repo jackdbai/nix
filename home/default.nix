@@ -1,6 +1,9 @@
 { config, pkgs, lib, system, inputs, ... }:
 
 {
+  home.username = "jack";
+  home.homeDirectory = "/home/jack";
+
   imports = [
     # Import applications
     # ../programs/androidstudio.nix
@@ -40,12 +43,14 @@
       "adblistu"="diff <(adb shell pm list packages) <(adb shell pm list packages -u)";
       "adbreinst"="adb shell cmd package install-existing";
       "adbuninst"="adb shell pm uninstall --user 0";
-      "build"="nix build --extra-experimental-features 'nix-command flakes'"
+      "build"="nix build --extra-experimental-features 'nix-command flakes'";
       "cleanup"="sudo nix-collect-garbage -d";
-      "rebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#main";
-      "nvrebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#nvidia";
-      "update" = "sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix";
-      "upgrade" = "nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix && sudo nixos-rebuild switch --flake ~/git/nix#main";
+      "nvrebuild"="sudo nixos-rebuild switch --flake ~/git/nix#nvidia";
+      "rebuild"="sudo nixos-rebuild switch --flake ~/git/nix#main";
+      "rmbak"="rm -r ~/.config/*.backup";
+      "rr"="rebuild && rmbak";
+      "update"="sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix";
+      "upgrade"="nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix && sudo nixos-rebuild switch --flake ~/git/nix#main";
     };
   };
 

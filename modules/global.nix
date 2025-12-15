@@ -46,10 +46,10 @@
   };
 
   # Enable auto-login
-  services.getty.autologinUser = "jack";
+  # services.getty.autologinUser = "jack";
 
   # Enable waybar?
-  # programs.waybar.enable = true;
+  programs.waybar.enable = true;
 
   # Enable power manager
   services.upower.enable = true;

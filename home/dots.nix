@@ -10,9 +10,10 @@ in
     # ".config/btop".source = mkOutOfStoreSymlink "${configDir}/btop";
     # ".config/doom".source = mkOutOfStoreSymlink "${configDir}/doom";
     # ".config/fastfetch".source = mkOutOfStoreSymlink "${configDir}/fastfetch";
+    ".config/ghostty".source = mkOutOfStoreSymlink "${configDir}/ghostty";
     # ".config/gowall".source = mkOutOfStoreSymlink "${configDir}/gowall";
-    ".config/hypr".source = mkOutOfStoreSymlink "${configDir}/hypr";
-    ".config/kitty".source = mkOutOfStoreSymlink "${configDir}/kitty";
+    ".config/hypr".source = mkOutOfStoreSymlink "${configDir}/hyprland";
+    # ".config/kitty".source = mkOutOfStoreSymlink "${configDir}/kitty";
     # ".config/mpd".source = mkOutOfStoreSymlink "${configDir}/mpd";
     # ".config/mpv".source = mkOutOfStoreSymlink "${configDir}/mpv";
     # ".config/nvim".source = mkOutOfStoreSymlink "${configDir}/nvim";

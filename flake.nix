@@ -29,6 +29,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.jack = import ./home;
           home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+          home-manager.backupFileExtension = "backup";
         }
         hosts.nixosModule
         ./modules/hosts.nix
@@ -47,6 +48,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.jack = import ./home;
           home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+          home-manager.backupFileExtension = "backup";
         }
         hosts.nixosModule
         (./modules/hosts.nix)
