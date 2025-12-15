@@ -11,6 +11,9 @@
 
     # Import GNOME settings
     #./gnome.nix
+
+    # Import dots
+    ./dots.nix
   ];
 
   # wayland.windowManager.hyprland = {
@@ -37,6 +40,7 @@
       "adblistu"="diff <(adb shell pm list packages) <(adb shell pm list packages -u)";
       "adbreinst"="adb shell cmd package install-existing";
       "adbuninst"="adb shell pm uninstall --user 0";
+      "build"="nix build --extra-experimental-features 'nix-command flakes'"
       "cleanup"="sudo nix-collect-garbage -d";
       "rebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#main";
       "nvrebuild" = "sudo nixos-rebuild switch --flake ~/git/nix#nvidia";

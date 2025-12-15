@@ -6,15 +6,14 @@
     blockPorn = true;
     blockSocial = false;
   };
-  
-  networking.extraHosts = 
+
+  networking.extraHosts =
     ''
     127.0.0.1   desktopnexus.com
     127.0.0.1   en.free-wallpapers.su
     127.0.0.1   goodfon.com
     127.0.0.1   idposter.com
     127.0.0.1   listal.com
-    127.0.0.1   old.reddit.com
     127.0.0.1   pinterest.com
     127.0.0.1   pic2.me
     127.0.0.1   suwalls.com

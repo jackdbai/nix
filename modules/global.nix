@@ -3,13 +3,11 @@
 ### BE SURE TO ADD THIS TO IMPORTS: ../modules/global.nix
 
 {
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
-  };
-  programs.waybar.enable = true;
-
+  imports = [
+    ./boot.nix
+    ./hyprland.nix
+    ./networking.nix
+  ];
   # Disable GNOME default applications
   #environment.gnome.excludePackages = with pkgs; [
   #  gnome-calendar
@@ -47,12 +45,13 @@
     shell = pkgs.zsh;
   };
 
+  # Enable auto-login
   services.getty.autologinUser = "jack";
 
-  environment.systemPackages = with pkgs; [
-    waybar
-  ];
+  # Enable waybar?
+  # programs.waybar.enable = true;
 
+  # Enable power manager
   services.upower.enable = true;
 
 }

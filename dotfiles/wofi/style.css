@@ -1,0 +1,42 @@
+window {
+  margin: 0px;
+  border: none;
+  background-color: #1a1d21;
+}
+
+#input {
+  margin: 5px;
+  border: none;
+  color: #e0dcd4;
+  background-color: #22262b;
+}
+
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: #1a1d21;
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: #1a1d21;
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
+
+#text {
+  font-family: GeistMono Nerd Font;
+  font-size: 15px;
+  margin: 5px;
+  border: none;
+  color: #e0dcd4;
+}
+
+#entry:selected {
+  background-color: #22262b;
+  color: #e0dcd4;
+}
