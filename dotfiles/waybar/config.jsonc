@@ -40,10 +40,11 @@
     "bat": "BAT2",
   },
   "network": {
-    "format-ethernet": "RETE: FVNIS",
+    "format-wifi": "{essid}",
+    "format-ethernet": "FVNIS",
     "tooltip-format": "{ifname} VIA {gwaddr}",
     "format-linked": "{ifname} (NO IP)",
-    "format-disconnected": "RETE: DISIVNCTVS",
+    "format-disconnected": "DISIVNCTVS",
     "format-alt": "{ifname}: {ipaddr}",
   },
   "pulseaudio": {
