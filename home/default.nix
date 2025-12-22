@@ -54,5 +54,21 @@
     };
   };
 
+  # services.hyprpaper = {
+  #   enable = true;
+  #   settings = {
+  #     preload = [
+  #       "/home/jack/git/nix/creation-dark.jpg"
+  #       "/home/jack/git/nix/creation-light.jpg"
+  #     ];
+  #     wallpaper = [
+  #       # By display
+  #       #"DP-2,~/wallpapers/wallpaper2.jpg"
+  #       # By default/fallback
+  #       ",/home/jack/git/nix/creation-dark.jpg"
+  #     ];
+  #   };
+  # };
+
   home.stateVersion = "22.11";
 }

@@ -6,13 +6,11 @@
     brave
     inputs.browseros.packages."${system}".default #BrowserOS
     burpsuite
-    code-cursor
     freecad
     gimp
     github-desktop
     ghostty
     handbrake
-    kitty
     libreoffice
     lmstudio
     localsend
@@ -25,6 +23,7 @@
     signal-desktop
     sublime3
     teamviewer
+    xfce.thunar
     transmission_4-gtk
     vlc
     vscodium

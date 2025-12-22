@@ -10,21 +10,21 @@
   };
 
   xdg.portal = {
-  enable = true;
-  extraPortals = [
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.xdg-desktop-portal-gtk
-  ];
-  config = {
-    common.default = "*";
-    hyprland.default = ["hyprland" "gtk"];
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config = {
+      common.default = "*";
+      hyprland.default = ["hyprland" "gtk"];
+    };
   };
-};
 
   environment.sessionVariables = {
-  MOZ_ENABLE_WAYLAND = "1";
-  NIXOS_OZONE_WL = "1";  # Also helps Electron apps
-};
+    MOZ_ENABLE_WAYLAND = "1";
+    NIXOS_OZONE_WL = "1";  # Also helps Electron apps
+  };
 
   # Install Hyprland ecosystem packages
   environment.systemPackages = with pkgs; [
@@ -38,6 +38,7 @@
     xclip
     hyprlock
     hypridle
+    hyprpaper
     hyprpicker
     hyprutils
     hyprsunset
@@ -45,5 +46,12 @@
     hyprwayland-scanner
     swaynotificationcenter
     kitty
+
+    # Theming stuff
+    nordic
+    nordzy-cursor-theme
+    zafiro-icons
+    papirus-icon-theme
+    polkit_gnome
   ];
 }

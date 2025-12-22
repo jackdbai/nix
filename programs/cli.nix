@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     android-tools
+    brightnessctl
     # android-udev-rules
     claude-code
     cursor-cli
@@ -11,6 +12,7 @@
     fdk-aac-encoder
     git
     hugo
+    killall
     lame
     nettools
     nixd
@@ -18,6 +20,7 @@
     opencode
     steam-run
     wget
+    xev
     yt-dlp
   ];
 }

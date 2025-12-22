@@ -5,6 +5,7 @@
 {
   imports = [
     ./boot.nix
+    ./fonts.nix
     ./hyprland.nix
     ./networking.nix
   ];
@@ -50,6 +51,9 @@
 
   # Enable waybar?
   programs.waybar.enable = true;
+
+  # Enable iwd
+  networking.wireless.iwd.enable = true;
 
   # Enable power manager
   services.upower.enable = true;
