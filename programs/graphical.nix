@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    antigravity
     asunder
     brave
     inputs.browseros.packages."${system}".default #BrowserOS
@@ -10,23 +11,23 @@
     gimp
     github-desktop
     ghostty
+    google-chrome
     handbrake
     libreoffice
     lmstudio
     localsend
-    obsidian
+    nautilus
+    # obsidian
     orca-slicer
     picard
     postman
-    protonmail-desktop
     rpi-imager
     signal-desktop
     sublime3
+    system-config-printer
     teamviewer
-    xfce.thunar
     transmission_4-gtk
     vlc
-    vscodium
     zed-editor
   ];
 }

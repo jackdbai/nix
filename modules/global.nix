@@ -23,6 +23,18 @@
   #  seahorse
   #];
 
+  environment.systemPackages = with pkgs; [
+    catppuccin-sddm
+    sddm-astronaut
+  ];
+
+  # Enable SDDM
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "catppuccin-mocha-mauve";
+  };
+
   # temp enable gnome keyring
   services.gnome.gnome-keyring.enable = true;
 
@@ -32,7 +44,7 @@
   ];
 
   # Enable ADB
-  programs.adb.enable = true;
+  # programs.adb.enable = true;
 
   # Enable Docker
   virtualisation.docker.enable = true;
@@ -53,9 +65,21 @@
   programs.waybar.enable = true;
 
   # Enable iwd
-  networking.wireless.iwd.enable = true;
+  # networking.wireless.iwd.enable = true;
 
   # Enable power manager
   services.upower.enable = true;
 
+  # Enable drive mounting
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
+  # Enable printing
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 }

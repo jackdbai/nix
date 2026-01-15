@@ -32,6 +32,7 @@
   },
   "battery": {
     "format": "BAT: {capacity}%",
+    "format-charging": "CHG: {capacity}%",
     "format-plugged": "CHG: {capacity}%",
     "tooltip-format": "{time}",
     "format-alt": "{time}",
@@ -40,11 +41,11 @@
     "bat": "BAT2",
   },
   "network": {
-    "format-wifi": "{essid}",
-    "format-ethernet": "FVNIS",
+    "format-wifi": "NET: {essid}",
+    "format-ethernet": "NET: FVNIS",
     "tooltip-format": "{ifname} VIA {gwaddr}",
     "format-linked": "{ifname} (NO IP)",
-    "format-disconnected": "DISIVNCTVS",
+    "format-disconnected": "NET: DISIVNCTVS",
     "format-alt": "{ifname}: {ipaddr}",
   },
   "pulseaudio": {

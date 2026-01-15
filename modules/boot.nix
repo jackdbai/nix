@@ -1,11 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-  # Fast, beautiful Plymouth boot with NixOS branding
-  boot.plymouth = {
-    enable = true;
-    theme = "breeze";
-  };
+  # Nice Plymouth boot screen
+  boot.plymouth.enable = true;
 
   # Silent boot for speed and clean look
   boot.kernelParams = [

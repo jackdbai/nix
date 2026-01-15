@@ -45,13 +45,14 @@
     wlsunset
     hyprwayland-scanner
     swaynotificationcenter
-    kitty
 
     # Theming stuff
     nordic
     nordzy-cursor-theme
-    zafiro-icons
     papirus-icon-theme
     polkit_gnome
+    ubuntu-sans-mono
+    ubuntu-themes
+    zafiro-icons
   ];
 }

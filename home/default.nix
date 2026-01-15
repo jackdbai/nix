@@ -13,7 +13,7 @@
     ../programs/texlive.nix
 
     # Import GNOME settings
-    #./gnome.nix
+    # ./gnome.nix
 
     # Import dots
     ./dots.nix
