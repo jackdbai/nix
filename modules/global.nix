@@ -10,7 +10,7 @@
     ./networking.nix
   ];
   # Disable GNOME default applications
-  #environment.gnome.excludePackages = with pkgs; [
+  # environment.gnome.excludePackages = with pkgs; [
   #  gnome-calendar
   #  cheese
   #  gnome-console
@@ -21,7 +21,7 @@
   #  geary
   #  gedit
   #  seahorse
-  #];
+  # ];
 
   environment.systemPackages = with pkgs; [
     catppuccin-sddm
@@ -44,7 +44,7 @@
   ];
 
   # Enable ADB
-  # programs.adb.enable = true;
+  programs.adb.enable = true;
 
   # Enable Docker
   virtualisation.docker.enable = true;
@@ -65,7 +65,7 @@
   programs.waybar.enable = true;
 
   # Enable iwd
-  # networking.wireless.iwd.enable = true;
+  networking.wireless.iwd.enable = true;
 
   # Enable power manager
   services.upower.enable = true;

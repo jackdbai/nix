@@ -19,13 +19,6 @@
     ./dots.nix
   ];
 
-  # wayland.windowManager.hyprland = {
-    # enable = true;
-    # extraConfig = (import ../modules/hypr {
-    #   inherit (config);
-    # });
-  # };
-
   # Enable significant programs
   programs.gh.enable = true;
   programs.home-manager.enable = true;
@@ -53,22 +46,6 @@
       "upgrade"="nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix && sudo nixos-rebuild switch --flake ~/git/nix#main";
     };
   };
-
-  # services.hyprpaper = {
-  #   enable = true;
-  #   settings = {
-  #     preload = [
-  #       "/home/jack/git/nix/creation-dark.jpg"
-  #       "/home/jack/git/nix/creation-light.jpg"
-  #     ];
-  #     wallpaper = [
-  #       # By display
-  #       #"DP-2,~/wallpapers/wallpaper2.jpg"
-  #       # By default/fallback
-  #       ",/home/jack/git/nix/creation-dark.jpg"
-  #     ];
-  #   };
-  # };
 
   home.stateVersion = "22.11";
 }

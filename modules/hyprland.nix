@@ -54,5 +54,9 @@
     ubuntu-sans-mono
     ubuntu-themes
     zafiro-icons
+
+    # Graphical packages
+    nautilus
+    system-config-printer
   ];
 }

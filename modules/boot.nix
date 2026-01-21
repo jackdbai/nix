@@ -2,29 +2,34 @@
 
 {
   # Nice Plymouth boot screen
-  boot.plymouth.enable = true;
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
 
-  # Silent boot for speed and clean look
-  boot.kernelParams = [
-    "quiet"
-    "splash"
-    "loglevel=3"
-    "rd.systemd.show_status=false"
-    "rd.udev.log_level=3"
-    "systemd.show_status=auto"
-  ];
+    # Silent boot for speed and clean look
+    kernelParams = [
+      "quiet"
+      "splash"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "systemd.show_status=auto"
+    ];
 
-  boot.consoleLogLevel = 0;
+    consoleLogLevel = 0;
 
-  # Fast boot timeout (updated option name)
-  boot.loader.timeout = 1;
+    # Fast boot timeout (updated option name)
+    loader.timeout = 1;
 
-  # Beautiful GRUB theme
-  boot.loader.grub.theme = pkgs.nixos-grub2-theme;
+    # Beautiful GRUB theme
+    loader.grub.theme = pkgs.nixos-grub2-theme;
 
-  # Keep boot entries clean
-  boot.loader.grub.configurationLimit = 5;
+    # Keep boot entries clean
+    loader.grub.configurationLimit = 5;
 
-  # LUKS + Plymouth integration for themed password prompts
-  boot.initrd.systemd.enable = true;
+    # LUKS + Plymouth integration for themed password prompts
+    initrd.systemd.enable = true;
+  };
 }

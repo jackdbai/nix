@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-05ff19cb-341c-42fc-8717-0d2fae39790a".device = "/dev/disk/by-uuid/05ff19cb-341c-42fc-8717-0d2fae39790a";
+  boot.initrd.luks.devices."luks-df0f09a2-2b4f-464a-8d4a-baa000b51249".device = "/dev/disk/by-uuid/df0f09a2-2b4f-464a-8d4a-baa000b51249";
   networking.hostName = "exodus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -44,7 +44,7 @@
   };
 
   # Enable the X11 windowing system.
-  #services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   # services.displayManager.gdm.enable = true;
@@ -82,14 +82,14 @@
   users.users.jack = {
     isNormalUser = true;
     description = "Jack";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "dialout" "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
     ];
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

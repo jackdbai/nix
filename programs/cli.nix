@@ -4,12 +4,11 @@
   home.packages = with pkgs; [
     android-tools
     brightnessctl
-    # android-udev-rules
-    claude-code
-    cursor-cli
     dnsutils
     docker-compose
     fdk-aac-encoder
+    gdrive3
+    gemini-cli
     git
     hugo
     killall
@@ -17,7 +16,6 @@
     nettools
     nixd
     nmap
-    opencode
     steam-run
     wget
     xev
