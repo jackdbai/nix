@@ -4,9 +4,11 @@
   home.packages = with pkgs; [
     android-tools
     brightnessctl
+    codex
     dnsutils
     docker-compose
     fdk-aac-encoder
+    gallery-dl
     gdrive3
     gemini-cli
     git
@@ -16,6 +18,7 @@
     nettools
     nixd
     nmap
+    opencode
     steam-run
     wget
     xev

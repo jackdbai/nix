@@ -9,6 +9,9 @@
     ./hyprland.nix
     ./networking.nix
   ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Disable GNOME default applications
   # environment.gnome.excludePackages = with pkgs; [
   #  gnome-calendar
@@ -44,7 +47,7 @@
   ];
 
   # Enable ADB
-  programs.adb.enable = true;
+  # programs.adb.enable = true;
 
   # Enable Docker
   virtualisation.docker.enable = true;

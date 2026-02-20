@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     antigravity
     asunder
+    # brave
     inputs.browseros.packages."${system}".default #BrowserOS
     burpsuite
     freecad
@@ -14,7 +15,8 @@
     handbrake
     libreoffice
     localsend
-    # obsidian
+    obsidian
+    opencode-desktop
     orca-slicer
     picard
     postman
@@ -24,5 +26,6 @@
     teamviewer
     transmission_4-gtk
     vlc
+    vscodium
   ];
 }

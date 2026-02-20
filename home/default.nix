@@ -9,8 +9,8 @@
     # ../programs/androidstudio.nix
     ../programs/cli.nix
     ../programs/graphical.nix
-    ../programs/ham.nix
-    ../programs/texlive.nix
+    # ../programs/ham.nix
+    # ../programs/texlive.nix
 
     # Import GNOME settings
     # ./gnome.nix
