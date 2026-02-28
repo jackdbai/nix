@@ -20,6 +20,7 @@
     nmap
     opencode
     steam-run
+    vim
     wget
     xev
     yt-dlp

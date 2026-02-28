@@ -2,7 +2,7 @@
 
 let
   mkOutOfStoreSymlink = path: config.lib.file.mkOutOfStoreSymlink path;
-  configDir = "${config.home.homeDirectory}/git/nix/dotfiles";
+  configDir = "${config.home.homeDirectory}/Documents/GitHub/nix/dotfiles";
 in
 {
   home.file = {

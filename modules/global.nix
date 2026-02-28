@@ -6,6 +6,7 @@
   imports = [
     ./boot.nix
     ./fonts.nix
+    ./mbp.nix
     ./hyprland.nix
     ./networking.nix
   ];
@@ -68,7 +69,7 @@
   programs.waybar.enable = true;
 
   # Enable iwd
-  networking.wireless.iwd.enable = true;
+  #networking.wireless.iwd.enable = true;
 
   # Enable power manager
   services.upower.enable = true;

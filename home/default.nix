@@ -38,12 +38,12 @@
       "adbuninst"="adb shell pm uninstall --user 0";
       "build"="nix build --extra-experimental-features 'nix-command flakes'";
       "cleanup"="sudo nix-collect-garbage -d";
-      "nvrebuild"="sudo nixos-rebuild switch --flake ~/git/nix#nvidia";
-      "rebuild"="sudo nixos-rebuild switch --flake ~/git/nix#main";
+      "nvrebuild"="sudo nixos-rebuild switch --flake ~/Documents/GitHub/nix#nvidia";
+      "rebuild"="sudo nixos-rebuild switch --flake ~/Documents/GitHub/nix#main";
       "rmbak"="rm -r ~/.config/*.backup";
       "rr"="rebuild && rmbak";
-      "update"="sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix";
-      "upgrade"="nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/git/nix && sudo nixos-rebuild switch --flake ~/git/nix#main";
+      "update"="sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/Documents/GitHub/nix";
+      "upgrade"="nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/Documents/GitHub/nix && sudo nixos-rebuild switch --flake ~/Documents/GitHub/nix#main";
     };
   };
 

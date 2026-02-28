@@ -8,13 +8,13 @@
   inputs = {
     browseros.url = "github:jackdbai/browseros-flake";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
-      # url = "github:nix-community/home-manager/release-25.11";
+      # url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts.url = "github:StevenBlack/hosts";
-    nixpkgs.url = "github:nixos/nixpkgs/master";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    # nixpkgs.url = "github:nixos/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
   };
 
   outputs = { self, browseros, home-manager, hosts, nixpkgs, ... } @ inputs: {
