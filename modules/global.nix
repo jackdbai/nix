@@ -6,7 +6,7 @@
   imports = [
     ./boot.nix
     ./fonts.nix
-    ./mbp.nix
+    # ./mbp.nix
     ./hyprland.nix
     ./networking.nix
   ];

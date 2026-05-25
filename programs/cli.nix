@@ -8,8 +8,6 @@
     dnsutils
     docker-compose
     fdk-aac-encoder
-    gallery-dl
-    gdrive3
     gemini-cli
     git
     hugo

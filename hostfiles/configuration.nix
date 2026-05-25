@@ -14,8 +14,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-03de599a-e5ba-4dc0-9226-e28b7b3c6c23".device = "/dev/disk/by-uuid/03de599a-e5ba-4dc0-9226-e28b7b3c6c23";
-  networking.hostName = "perpetua"; # Define your hostname.
+  boot.initrd.luks.devices."luks-ae74c250-eb11-46af-bec5-79bf5b95be08".device = "/dev/disk/by-uuid/ae74c250-eb11-46af-bec5-79bf5b95be08";
+  networking.hostName = "exodus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -48,8 +48,8 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  #services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -85,13 +85,13 @@
     description = "Jack";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
+      # kdePackages.kate
     #  thunderbird
     ];
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
