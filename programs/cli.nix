@@ -4,11 +4,11 @@
   home.packages = with pkgs; [
     android-tools
     brightnessctl
+    claude-code
     codex
     dnsutils
     docker-compose
     fdk-aac-encoder
-    gemini-cli
     git
     hugo
     killall
@@ -16,7 +16,7 @@
     nettools
     nixd
     nmap
-    opencode
+    #opencode
     steam-run
     vim
     wget

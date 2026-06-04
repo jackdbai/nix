@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    antigravity
+    #antigravity
     asunder
     brave
     inputs.browseros.packages."${system}".default #BrowserOS
@@ -27,5 +27,6 @@
     transmission_4-gtk
     vlc
     vscodium
+    zed-editor
   ];
 }
