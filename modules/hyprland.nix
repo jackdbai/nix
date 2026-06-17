@@ -31,7 +31,7 @@
     waybar
     wtype
     wofi
-    swww
+    awww
     grim
     slurp
     wl-clipboard

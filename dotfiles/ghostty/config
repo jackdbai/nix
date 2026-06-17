@@ -1,2 +1,3 @@
 # placeholder
-keybind = performable:ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+insert=unbind

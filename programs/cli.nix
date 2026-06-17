@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     android-tools
+    antigravity-cli
     brightnessctl
     claude-code
     codex

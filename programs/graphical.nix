@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    #antigravity
+    # antigravity
     asunder
     brave
     inputs.browseros.packages."${system}".default #BrowserOS
@@ -21,7 +21,7 @@
     picard
     postman
     rpi-imager
-    signal-desktop
+    # signal-desktop
     sublime3
     teamviewer
     transmission_4-gtk
