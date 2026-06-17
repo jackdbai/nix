@@ -2,9 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    # antigravity
     asunder
-    brave
     inputs.browseros.packages."${system}".default #BrowserOS
     burpsuite
     freecad
@@ -16,7 +14,6 @@
     libreoffice
     localsend
     obsidian
-    # opencode-desktop
     orca-slicer
     picard
     postman
