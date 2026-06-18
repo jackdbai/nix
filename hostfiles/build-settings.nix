@@ -3,7 +3,7 @@
   texlive = { enable = false; };
   androidstudio = { enable = false; };
   hardware = {
-    isMacBook = false;
+    isMacBook = true;
     hasNvidia = false;
   };
 }

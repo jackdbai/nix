@@ -21,25 +21,31 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Determine hostname and host configuration folder
 CURRENT_HOSTNAME=$(hostname)
-
-echo -e "${BLUE}Configuring system hostname...${NC}"
-read -rp "Enter the desired hostname for this system [default: $CURRENT_HOSTNAME]: " input_hostname
-HOST_DIR="${input_hostname:-$CURRENT_HOSTNAME}"
-
+HOST_DIR="$CURRENT_HOSTNAME"
 IS_FRESH_INSTALL=false
-if [ ! -d "$REPO_DIR/hostfiles/$HOST_DIR" ]; then
-    IS_FRESH_INSTALL=true
-else
-    echo -e "${RED}Warning: Configuration folder for host '$HOST_DIR' already exists.${NC}"
-    read -rp "Do you want to overwrite it with the system's current /etc/nixos configuration? [y/N]: " overwrite_choice
-    case "$overwrite_choice" in
-        [yY][eE][sS]|[yY])
-            IS_FRESH_INSTALL=true
-            ;;
-        *)
-            echo -e "${BLUE}Keeping existing configuration for '$HOST_DIR'.${NC}"
-            ;;
-    esac
+
+# Only prompt for hostname if the configuration directory for the current host doesn't exist
+if [ ! -d "$REPO_DIR/hostfiles/$CURRENT_HOSTNAME" ]; then
+    echo -e "${BLUE}No existing host configuration folder found for hostname '$CURRENT_HOSTNAME'.${NC}"
+    read -rp "Enter the desired hostname for this system [default: $CURRENT_HOSTNAME]: " input_hostname
+    HOSTNAME_TO_USE="${input_hostname:-$CURRENT_HOSTNAME}"
+    HOST_DIR="$HOSTNAME_TO_USE"
+
+    # If the user-selected hostname configuration also doesn't exist, it's a fresh install
+    if [ ! -d "$REPO_DIR/hostfiles/$HOST_DIR" ]; then
+        IS_FRESH_INSTALL=true
+    else
+        echo -e "${RED}Warning: Configuration folder for host '$HOST_DIR' already exists.${NC}"
+        read -rp "Do you want to overwrite it with the system's current /etc/nixos configuration? [y/N]: " overwrite_choice
+        case "$overwrite_choice" in
+            [yY][eE][sS]|[yY])
+                IS_FRESH_INSTALL=true
+                ;;
+            *)
+                echo -e "${BLUE}Keeping existing configuration for '$HOST_DIR'.${NC}"
+                ;;
+        esac
+    fi
 fi
 
 if [ "$IS_FRESH_INSTALL" = "true" ]; then
