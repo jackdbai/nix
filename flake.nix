@@ -19,17 +19,96 @@
 
   outputs = { self, browseros, home-manager, hosts, nixpkgs, ... } @ inputs: {
 
-    nixosConfigurations.main = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.tui = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        ./hostfiles/configuration.nix
+        ./hostfiles/active/configuration.nix
         ./modules/global.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.jack = import ./home;
+          home-manager.users.jack = {
+            imports = [
+              ./home
+            ];
+          };
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+          home-manager.backupFileExtension = "backup";
+        }
+        hosts.nixosModule
+        ./modules/hosts.nix
+      ];
+    };
+
+    nixosConfigurations.hyprland = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hostfiles/active/configuration.nix
+        ./modules/global.nix
+        ./modules/graphical.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jack = {
+            imports = [
+              ./home
+              ./home/graphical.nix
+            ];
+          };
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+          home-manager.backupFileExtension = "backup";
+        }
+        hosts.nixosModule
+        ./modules/hosts.nix
+      ];
+    };
+
+    nixosConfigurations.gnome = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hostfiles/active/configuration.nix
+        ./modules/global.nix
+        ./modules/gnome.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jack = {
+            imports = [
+              ./home
+              ./home/gnome.nix
+              ./programs/graphical.nix
+            ];
+          };
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+          home-manager.backupFileExtension = "backup";
+        }
+        hosts.nixosModule
+        ./modules/hosts.nix
+      ];
+    };
+
+    nixosConfigurations.server = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hostfiles/active/configuration.nix
+        ./modules/global.nix
+        ./modules/server.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jack = {
+            imports = [
+              ./home
+            ];
+          };
           home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
           home-manager.backupFileExtension = "backup";
         }
