@@ -20,7 +20,6 @@
   outputs = { self, browseros, home-manager, hosts, nixpkgs, ... } @ inputs: {
 
     nixosConfigurations.tui = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./hostfiles/active/configuration.nix
@@ -43,7 +42,6 @@
     };
 
     nixosConfigurations.hyprland = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./hostfiles/active/configuration.nix
@@ -68,7 +66,6 @@
     };
 
     nixosConfigurations.gnome = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./hostfiles/active/configuration.nix
@@ -94,7 +91,6 @@
     };
 
     nixosConfigurations.server = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./hostfiles/active/configuration.nix

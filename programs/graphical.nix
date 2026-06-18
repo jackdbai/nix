@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     asunder
-    inputs.browseros.packages."${system}".default #BrowserOS
+    inputs.browseros.packages."${pkgs.system}".default #BrowserOS
     burpsuite
     freecad
     gimp
