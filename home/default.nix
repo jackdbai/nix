@@ -1,28 +1,22 @@
 { config, pkgs, lib, system, inputs, ... }:
 
-let
-  settings = import ../hostfiles/build-settings.nix;
-in
 {
   home.username = "jack";
   home.homeDirectory = "/home/jack";
 
   imports = [
-    ../programs/cli.nix
-  ] ++ lib.optional (settings.ham.enable or false) ../programs/ham.nix
-    ++ lib.optional (settings.texlive.enable or false) ../programs/texlive.nix
-    ++ lib.optional (settings.androidstudio.enable or false) ../programs/androidstudio.nix;
+    ./gnome.nix
+    ./programs.nix
+  ];
 
   # Enable significant programs
   programs.gh.enable = true;
   programs.home-manager.enable = true;
 
-  #ZSH settings
-  programs.zsh = {
+  #Shell settings
+  programs.bash = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
 
     shellAliases = {
       ll = "ls -l";
@@ -33,11 +27,11 @@ in
       "build"="nix build --extra-experimental-features 'nix-command flakes'";
       "cleanup"="sudo nix-collect-garbage -d";
       "nvrebuild"="sudo nixos-rebuild switch --flake ~/Documents/GitHub/nix#nvidia";
-      "rebuild"="~/Documents/GitHub/nix/build.sh";
+      "rebuild"="sudo nixos-rebuild switch --flake ~/nix#main";
       "rmbak"="rm -r ~/.config/*.backup";
       "rr"="rebuild && rmbak";
-      "update"="sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/Documents/GitHub/nix";
-      "upgrade"="nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/Documents/GitHub/nix && ~/Documents/GitHub/nix/build.sh";
+      "update"="sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/nix";
+      "upgrade"="nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/nix && rebuild";
     };
   };
 

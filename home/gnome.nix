@@ -29,8 +29,8 @@
       show-battery-percentage = true;
     };
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/jack/git/nix/creation-light.jpg";
-      picture-uri-dark = "file:///home/jack/git/nix/creation-dark.jpg";
+      picture-uri = "file:///home/jack/Documents/GitHub/nix/creation-light.jpg";
+      picture-uri-dark = "file:///home/jack/Documents/GitHub/nix/creation-dark.jpg";
       picture-options = "center";
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
@@ -43,10 +43,11 @@
       ];
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
-        "antigravity.desktop"
         "google-chrome.desktop"
-        "signal-desktop.desktop"
-        "com.mitchellh.ghostty.desktop"
+        "github-desktop.desktop"
+        "obsidian.desktop"
+        "dev.zed.Zed.desktop"
+        "org.gnome.Console.desktop"
       ];
     };
     "org/gnome/shell/extensions/paperwm" = {
