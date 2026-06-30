@@ -13,6 +13,7 @@
     #fdk-aac-encoder
     gh
     git
+    git-credential-manager
     #hugo
     killall
     #lame
