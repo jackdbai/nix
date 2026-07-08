@@ -46,7 +46,8 @@
         "google-chrome.desktop"
         "github-desktop.desktop"
         "obsidian.desktop"
-        "dev.zed.Zed.desktop"
+        "codium.desktop"
+        # "dev.zed.Zed.desktop"
         "org.gnome.Console.desktop"
       ];
     };

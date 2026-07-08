@@ -13,18 +13,65 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts.url = "github:StevenBlack/hosts";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     # nixpkgs.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     #nix73.url = "/home/jack/Documents/GitHub/nix73";
   };
 
-  outputs = { self, browseros, home-manager, hosts, nixpkgs, ... } @ inputs: {
+  outputs = { self, browseros, home-manager, hosts, llm-agents, nixpkgs, ... } @ inputs: {
 
     nixosConfigurations.main = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./modules/boot.nix
         #inputs.nix73.nixosModules.hamRadioEnv
+        ./hostfiles/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jack = {
+            imports = [
+              ./home
+            ];
+          };
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+          home-manager.backupFileExtension = "backup";
+        }
+        hosts.nixosModule
+        ./modules/hosts.nix
+      ];
+    };
+
+    nixosConfigurations.mbp = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./modules/boot.nix
+        ./modules/mbp.nix
+        ./hostfiles/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jack = {
+            imports = [
+              ./home
+            ];
+          };
+          home-manager.extraSpecialArgs = { inherit inputs; system = "x86_64-linux";};
+          home-manager.backupFileExtension = "backup";
+        }
+        hosts.nixosModule
+        ./modules/hosts.nix
+      ];
+    };
+
+    nixosConfigurations.nvidia = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./modules/boot.nix
+        ./modules/nvidia.nix
         ./hostfiles/configuration.nix
         home-manager.nixosModules.home-manager
         {

@@ -2,55 +2,50 @@
 
 {
   home.packages = with pkgs; [
+    ### LLM APPLICATIONS ###
+    inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}".antigravity-cli
+
     ### CLI APPLICATIONS ###
-    # android-tools
-    # antigravity-cli
+    android-tools
     brightnessctl
-    claude-code
-    #codex
     dnsutils
     docker-compose
-    #fdk-aac-encoder
+    fdk-aac-encoder
     gh
     git
     git-credential-manager
-    #hugo
+    hugo
     killall
-    #lame
+    lame
     nettools
     nixd
     nmap
-    #opencode
     steam-run
     vim
     wget
     xev
-    #yt-dlp
+    yt-dlp
 
     ### GRAPHICAL APPLICATIONS ###
-    #asunder
+    asunder
     brave
-    # inputs.browseros.packages."${pkgs.system}".default #BrowserOS
-    #burpsuite
-    #freecad
-    #gimp
-    # github-desktop
-    # ghostty
+    inputs.browseros.packages."${pkgs.stdenv.hostPlatform.system}".default #BrowserOS
+    burpsuite
+    freecad
+    gimp
     google-chrome
-    #handbrake
-    #libreoffice
-    #localsend
+    handbrake
+    libreoffice
     obsidian
-    #orca-slicer
-    #picard
-    #postman
+    orca-slicer
+    picard
+    postman
     rpi-imager
-    # signal-desktop
     sublime3
-    #teamviewer
-    #transmission_4-gtk
-    #vlc
-    #vscodium
-    zed-editor
+    teamviewer
+    texlivePackages.scheme-full
+    transmission_4-gtk
+    vlc
+    vscodium
   ];
 }
