@@ -26,7 +26,8 @@
       "adbuninst"="adb shell pm uninstall --user 0";
       "build"="nix build --extra-experimental-features 'nix-command flakes'";
       "cleanup"="sudo nix-collect-garbage -d";
-      "rebuild"="sudo nixos-rebuild switch --flake ~/Documents/GitHub/nix#main";
+      "dr"="~/Documents/GitHub/nix/rebuild.sh -d";
+      "rebuild"="~/Documents/GitHub/nix/rebuild.sh";
       "rmbak"="rm -r ~/.config/*.backup";
       "rr"="rebuild && rmbak";
       "update"="sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/Documents/GitHub/nix";

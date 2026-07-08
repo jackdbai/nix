@@ -39,7 +39,8 @@
   # Enable ollama
   services.ollama = {
     enable = true;
-    acceleration = "cuda";
+    # acceleration = "cuda";
+    package = pkgs.ollama-cuda;
   };
 
   services.open-webui.enable = true;
