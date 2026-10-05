@@ -6,24 +6,22 @@
   };
 
   inputs = {
-    browseros.url = "github:jackdbai/browseros-flake";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts.url = "github:StevenBlack/hosts";
     llm-agents.url = "github:numtide/llm-agents.nix";
+    nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    #nix73.url = "/home/jack/Documents/GitHub/nix73";
   };
 
-  outputs = { self, browseros, home-manager, hosts, llm-agents, nixpkgs, ... } @ inputs: {
+  outputs = { self, home-manager, hosts, llm-agents, nixpkgs, nixos-apple-silicon, ... } @ inputs: {
 
     nixosConfigurations.dev = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./modules/boot.nix
-        #inputs.nix73.nixosModules.hamRadioEnv
         ./hostfiles/active/configuration.nix
         home-manager.nixosModules.home-manager
         {
@@ -109,6 +107,32 @@
         ./modules/hosts.nix
       ];
     };
+
+    nixosConfigurations.apple-silicon = nixos-apple-silicon.inputs.nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        nixos-apple-silicon.nixosModules.default
+        ./modules/apple-silicon.nix
+        ./hostfiles/active/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jack = {
+            imports = [
+              ./home
+            ];
+          };
+          home-manager.extraSpecialArgs = { inherit inputs; system = "aarch64-linux"; };
+          home-manager.backupFileExtension = "backup";
+          home-manager.users.jack.home.enableNixpkgsReleaseCheck = false;
+        }
+        hosts.nixosModule
+        ./modules/hosts.nix
+      ];
+    };
+
+    nixosConfigurations.asahi = self.nixosConfigurations.apple-silicon;
 
   };
 }

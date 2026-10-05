@@ -88,9 +88,21 @@ fi
 
 # Verify host directory exists
 if [ ! -d "$HOST_DIR" ]; then
-    echo "Error: Host configuration directory '$HOST_DIR' does not exist."
-    echo "Please create the directory '$HOST_DIR' with configuration.nix and hardware-configuration.nix first."
-    exit 1
+    if [ -f /etc/nixos/configuration.nix ] && [ -f /etc/nixos/hardware-configuration.nix ]; then
+        echo "Host configuration directory '$HOST_DIR' does not exist."
+        echo "Importing existing configuration files from /etc/nixos/..."
+        mkdir -p "$HOST_DIR"
+        cp /etc/nixos/configuration.nix "$HOST_DIR/"
+        cp /etc/nixos/hardware-configuration.nix "$HOST_DIR/"
+        if git -C "$SCRIPT_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+            echo "Staging new configuration files in Git..."
+            git -C "$SCRIPT_DIR" add "$HOST_DIR"
+        fi
+    else
+        echo "Error: Host configuration directory '$HOST_DIR' does not exist."
+        echo "Please create the directory '$HOST_DIR' with configuration.nix and hardware-configuration.nix first."
+        exit 1
+    fi
 fi
 
 # Set up active symlink pointing to target host
@@ -105,6 +117,20 @@ if git -C "$SCRIPT_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 fi
 
 # Hardware Detection Functions
+is_apple_silicon() {
+    # Check for Apple Silicon device tree or compatible strings
+    if [ -f /proc/device-tree/compatible ] && grep -qi "apple" /proc/device-tree/compatible 2>/dev/null; then
+        return 0
+    fi
+    if [ -f /proc/device-tree/model ] && grep -qi "apple" /proc/device-tree/model 2>/dev/null; then
+        return 0
+    fi
+    if is_macbook && [ "$(uname -m)" = "aarch64" ]; then
+        return 0
+    fi
+    return 1
+}
+
 is_macbook() {
     if [ -f /sys/class/dmi/id/sys_vendor ] && grep -qi "Apple" /sys/class/dmi/id/sys_vendor; then
         return 0
@@ -134,6 +160,9 @@ HARDWARE_REASON="No special hardware detected; using standard configuration"
 if [ "$USE_DEV_FLAKE" = true ]; then
     FLAKE_TARGET="dev"
     HARDWARE_REASON="Dev flake requested via flag"
+elif is_apple_silicon; then
+    FLAKE_TARGET="apple-silicon"
+    HARDWARE_REASON="Apple Silicon Mac detected"
 elif is_macbook; then
     FLAKE_TARGET="mbp"
     HARDWARE_REASON="MacBook hardware detected"
@@ -142,7 +171,13 @@ elif has_nvidia_gpu; then
     HARDWARE_REASON="NVIDIA GPU detected"
 fi
 
-echo "Selected flake target: '$FLAKE_TARGET' ($HARDWARE_REASON)"
-echo "Executing: sudo nixos-rebuild switch --flake $SCRIPT_DIR#$FLAKE_TARGET"
+EXTRA_BUILD_FLAGS=()
+# Apple Silicon builds need access to /boot/vendorfw/ for peripheral firmware extraction
+if [ "$FLAKE_TARGET" = "apple-silicon" ] || [ "$FLAKE_TARGET" = "asahi" ] || is_apple_silicon; then
+    EXTRA_BUILD_FLAGS+=(--impure)
+fi
 
-sudo nixos-rebuild switch --flake "$SCRIPT_DIR#$FLAKE_TARGET"
+echo "Selected flake target: '$FLAKE_TARGET' ($HARDWARE_REASON)"
+echo "Executing: sudo nixos-rebuild switch --flake $SCRIPT_DIR#$FLAKE_TARGET ${EXTRA_BUILD_FLAGS[*]}"
+
+sudo nixos-rebuild switch --flake "$SCRIPT_DIR#$FLAKE_TARGET" "${EXTRA_BUILD_FLAGS[@]}"
