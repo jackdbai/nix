@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-01925e7f-23d3-41f4-8248-9f79dba6afd0".device = "/dev/disk/by-uuid/01925e7f-23d3-41f4-8248-9f79dba6afd0";
+  boot.initrd.luks.devices."luks-e098357f-f54d-422f-9227-11cec1eea1d5".device = "/dev/disk/by-uuid/e098357f-f54d-422f-9227-11cec1eea1d5";
   networking.hostName = "exodus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -51,15 +51,16 @@
   services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
+  services.xserver = {
     layout = "us";
-    variant = "";
+    xkbVariant = "";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
+  #sound.enable = true;
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -79,17 +80,15 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."jack" = {
+  users.users.jack = {
     isNormalUser = true;
     description = "Jack";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+    #  firefox
     #  thunderbird
     ];
   };
-
-  # Install firefox.
-  #programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -126,6 +125,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "26.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }

@@ -1,6 +1,22 @@
 { config, pkgs, inputs, ... }:
 
 {
+  programs.vscodium = {
+    enable = true;
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+      james-yu.latex-workshop
+      (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "compline";
+          publisher = "rivethorn";
+          version = "1.0.1";
+          sha256 = "134bm4k2zn7n9qxdq24lzx92yirvam03dxi60bzqdky3vhbccg9i";
+        };
+      })
+    ];
+  };
+
   home.packages = with pkgs; [
     ### LLM APPLICATIONS ###
     inputs.llm-agents.packages."${pkgs.stdenv.hostPlatform.system}".antigravity-cli
@@ -46,6 +62,5 @@
     texlivePackages.scheme-full
     transmission_4-gtk
     vlc
-    vscodium
   ];
 }
