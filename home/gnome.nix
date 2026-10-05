@@ -1,5 +1,8 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, osConfig ? {}, ... }:
 
+let
+  isAsahi = (osConfig.hardware ? asahi) && (osConfig.hardware.asahi.enable or false);
+in
 {
   # Install GNOME extensions
   home.packages = with pkgs.gnomeExtensions; [
@@ -62,5 +65,12 @@
         "0.66666666666666667"
       ];
     };
-  };
+  } // (lib.optionalAttrs isAsahi {
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      keyboard-brightness-up = [ "<Super>F6" "XF86KbdBrightnessUp" ];
+      keyboard-brightness-down = [ "<Super>F5" "XF86KbdBrightnessDown" ];
+      keyboard-brightness-toggle = [ "XF86KbdLightOnOff" ];
+    };
+  });
 }
+
