@@ -28,7 +28,7 @@
       "cleanup"="sudo nix-collect-garbage -d";
       "dr"="~/Documents/GitHub/nix/rebuild.sh -d";
       "rebuild"="~/Documents/GitHub/nix/rebuild.sh";
-      "rmbak"="rm -r ~/.config/*.backup";
+      "rmbak"="find ~/.config -name '*.backup' -exec rm -rf {} +";
       "rr"="rebuild && rmbak";
       "update"="sudo nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/Documents/GitHub/nix";
       "upgrade"="nix flake update --extra-experimental-features 'nix-command flakes' --flake ~/Documents/GitHub/nix && rebuild";

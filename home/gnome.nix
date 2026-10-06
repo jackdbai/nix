@@ -46,11 +46,9 @@ in
       ];
       favorite-apps = [
         "org.gnome.Nautilus.desktop"
-        "google-chrome.desktop"
-        "github-desktop.desktop"
+        "brave-browser.desktop"
         "obsidian.desktop"
         "codium.desktop"
-        # "dev.zed.Zed.desktop"
         "org.gnome.Console.desktop"
       ];
     };

@@ -181,3 +181,10 @@ echo "Selected flake target: '$FLAKE_TARGET' ($HARDWARE_REASON)"
 echo "Executing: sudo nixos-rebuild switch --flake $SCRIPT_DIR#$FLAKE_TARGET ${EXTRA_BUILD_FLAGS[*]}"
 
 sudo nixos-rebuild switch --flake "$SCRIPT_DIR#$FLAKE_TARGET" "${EXTRA_BUILD_FLAGS[@]}"
+
+# Clean up home-manager backup files if any exist
+if [ -d "$HOME/.config" ]; then
+    find "$HOME/.config" -name "*.backup" -exec rm -rf {} +
+fi
+
+
